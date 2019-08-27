@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X - UA - Compatible " content="ie = edge ">
+    <title>跨域验证</title>
+    <style>
+        button {
+            text-decoration: none;
+            display: inline-block;
+            border-block-color: red;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        span {
+            display: inline-block;
+            margin-top: 50px;
+            word-break: break-all;
+        }
+
+        .cors {
+            width: 270px;
+            height: 270px;
+            margin-right: 5px;
+        }
+
+        .color1 {
+            background-color: #ef342a;
+        }
+
+        .color2 {
+            background-color: #f68f26;
+        }
+
+        .color3 {
+            background-color: #4ba946;
+        }
+
+        .color4 {
+            background-color: #0376c2;
+        }
+
+        .color5 {
+            background-color: #c077af;
+        }
+
+        .color6 {
+            background-color: #d0e4a9;
+        }
+
+        .color7 {
+            background-color: #b5a87f;
+        }
+
+        .container {
+            display: flex;
+            width: 800px;
+            height: 800px;
+        }
+
+        /*   background-color: #b5a87f;background-color: #4dc7ec;*/
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="cors color1">
+            <button class="color1">ajax 跨域-jsonp 不携带 cookie</button>
+            <span>ajax 跨域不携带 cookie</span>
+        </div>
+
+        <div class="cors color2">
+            <button class="color2">ajax 跨域-cors 不携带 cookie</button>
+            <span>ajax 跨域-cors 不携带 cookie</span>
+        </div>
+
+        <div class="cors color3">
+            <button class="color3">ajax 跨域-cors 携带 cookie</button>
+            <span>ajax 跨域-cors 携带 cookie</span>
+        </div>
+
+        <div class="cors color4">
+            <button class="color4">axios 跨域-cors 不携带 cookie</button>
+            <span>axios 跨域-cors 不携带 cookie</span>
+        </div>
+
+        <div class="cors color5">
+            <button class="color5">axios 跨域-cors 携带 cookie</button>
+            <span>axios 跨域-cors 携带 cookie</span>
+        </div>
+        <div class="cors color6">
+            <button class="color6">domain 为 / 下的 cookie</button>
+            <span>domain 为 / 下的 cookie</span>
+        </div>
+        <div class="cors color7">
+            <button class="color7">跨域下允许的请求头，和返回的请求头</button>
+            <span>au1允许,au2允许,au3允许返回，au4 不允许返回</span>
+        </div>
+    </div>
+    <script src="./public/plugins/jquery-3.4.1.min.js"></script>
+    <script src="./public/plugins/jquery.cookie.js"></script>
+    <script src="./public/plugins/axios.min.js"></script>
+    <script>
+        const prefixUrl = "http://192.168.203.50:8081"
+
+
+        const complete = function () {
+            $.ajax({
+                url: `${prefixUrl}/domain/cors/cookie`,
+                type: 'get',
+                dataType: 'json',
+                xhrFields: { withCredentials: true },
+                success(data) {
+                    alert(JSON.stringify(data));
+                },
+                error(error) {
+                    console.error('ajax 错误', error);
+                }
+            });
+        }
+
+
+        // 第一个按钮 jsonp 不带cookie
+        const button1 = document.querySelector("body > div > div.cors.color1 > button")
+        const span1 = document.querySelector("body > div > div.cors.color1 > span");
+        button1.onclick = () => {
+            $.ajax({
+                url: `${prefixUrl}/domain/ajax/jsonp/no-cookie`,
+                type: 'get',
+                dataType: 'jsonp',
+                success(data) {
+                    span1.innerHTML = JSON.stringify(data);
+                },
+                error(error) {
+                    console.error('ajax 错误', error);
+                }
+            });
+        }
+
+        // 第二个按钮 cors 不带 cookie
+        const button2 = document.querySelector("body > div > div.cors.color2 > button")
+        const span2 = document.querySelector("body > div > div.cors.color2 > span");
+        button2.onclick = () => {
+            $.ajax({
+                url: `${prefixUrl}/domain/ajax/cors/no-cookie`,
+                type: 'get',
+                dataType: 'json',
+                success(data) {
+                    span2.innerHTML = JSON.stringify(data);
+                },
+                error(error) {
+                    console.error('ajax 错误', error);
+                }
+            });
+        }
+
+        // 第三个按钮 cors 携带 cookie
+        const button3 = document.querySelector("body > div > div.cors.color3 > button")
+        const span3 = document.querySelector("body > div > div.cors.color3 > span");
+        button3.onclick = () => {
+            $.ajax({
+                url: `${prefixUrl}/domain/ajax/cors/cookie`,
+                type: 'get',
+                dataType: 'json',
+                beforeSend() {
+                    $.cookie('corsCookie', Math.random(), { expires: 7000, path: '/' });
+                },
+                xhrFields: { withCredentials: true },
+                success(data) {
+                    const str = JSON.stringify(data);
+                    console.log(str);
+                    span3.innerHTML = str;
+                },
+                error(error) {
+                    console.error('ajax 错误', error);
+                }, complete
+            });
+        }
+
+        // 第四个按钮 axios cors 不带 cookie
+        const button4 = document.querySelector("body > div > div.cors.color4 > button")
+        const span4 = document.querySelector("body > div > div.cors.color4 > span");
+        button4.onclick = () => {
+            axios.request({
+                url: `${prefixUrl}/domain/ajax/cors/no-cookie`,
+                method: 'get'
+            }).then(data => {
+                const str = JSON.stringify(data.data);
+                span4.innerHTML = str;
+                alert(str);
+            });
+        }
+        // 第五个按钮 axios cors 不带 cookie
+        const button5 = document.querySelector("body > div > div.cors.color5 > button")
+        const span5 = document.querySelector("body > div > div.cors.color5 > span");
+        button5.onclick = () => {
+            axios.request({
+                url: `${prefixUrl}/domain/ajax/cors/cookie`,
+                method: 'get',
+                withCredentials: true
+            }).then(data => {
+                const str = JSON.stringify(data.data);
+                span5.innerHTML = str;
+                alert(str);
+            });
+        }
+        // 第六个按钮 axios cors 不带 cookie
+        const button6 = document.querySelector("body > div > div.cors.color6 > button")
+        const span6 = document.querySelector("body > div > div.cors.color6 > span");
+        button6.onclick = () => {
+            axios.request({
+                url: `${prefixUrl}/domain/cors/cookie`,
+                method: 'get',
+                withCredentials: true
+            }).then(data => {
+                const str = JSON.stringify(data.data);
+                span6.innerHTML = str;
+                alert(str);
+            });
+        }
+        // 第七个按钮 axios cors 请求头 au1允许,au2允许,au3允许返回，au4 不允许返回
+        const button7 = document.querySelector("body > div > div.cors.color7 > button")
+        const span7 = document.querySelector("body > div > div.cors.color7 > span");
+        button7.onclick = () => {
+            axios.request({
+                url: `${prefixUrl}/domain/headers`,
+                method: 'get',
+                headers: { au1: 'au1', au2: 'au2' },
+                withCredentials: true
+            }).then(data => {
+                const str = JSON.stringify(data.data);
+                console.log(data.headers);
+                span7.innerHTML = str;
+                alert(str);
+            });
+        }
+    </script>
+</body>
+
+</html>

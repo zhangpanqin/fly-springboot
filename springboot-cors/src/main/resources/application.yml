@@ -1,0 +1,9 @@
+server:
+  port: 8081
+app:
+  cors:
+    allow-ip:
+      - http://192.168.203.50:8080
+      - http://127.0.0.1:8080
+      - http://localhost:8080
+      - \*
