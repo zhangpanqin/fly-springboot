@@ -21,6 +21,7 @@
         <module>springboot-aop</module>
         <module>springboot-web</module>
         <module>springboot-cors</module>
+        <module>druid-demo</module>
     </modules>
     <properties>
         <swagger.version>2.9.2</swagger.version>
