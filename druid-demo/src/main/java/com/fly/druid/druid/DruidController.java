@@ -20,10 +20,12 @@ public class DruidController {
     private DepotDao depotDao;
     @GetMapping("/api/depots")
     public List<Map<String,Object>> listDepots(){
-        return depotDao.allDepots();
+        return depotDao.allDepots(1);
     }
     @GetMapping("/api/test")
-    public Map test(){
+    public Map test() throws InterruptedException {
+        int a=0;
+        depotDao.allDepots(1);
         Map map=new HashMap();
         map.put("key","value3");
         return map;

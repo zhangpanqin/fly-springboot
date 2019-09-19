@@ -1,6 +1,7 @@
 package com.fly.druid.druid;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -13,5 +14,5 @@ import java.util.Map;
 @Mapper
 public interface DepotDao {
 
-    List<Map<String,Object>>allDepots();
+    List<Map<String,Object>>allDepots(@Param("id") Integer id);
 }
