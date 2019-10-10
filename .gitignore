@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
 # Compiled class file
+**/target
 *.class
 
 # Log file
@@ -26,3 +27,9 @@ hs_err_pid*
 .idea
 **/log/
 **/logs/
+**/.rebel.xml.bak
+**/resources/rebel.xml
+**/rebel.xml
+**/.rebel-remote.xml.bak
+**/demo.txt
+**/demo.xml
