@@ -23,6 +23,7 @@
         <module>springboot-cors</module>
         <module>druid-demo</module>
         <module>swagger2-demo</module>
+        <module>mybatis-plus-demo</module>
     </modules>
     <properties>
         <swagger.version>2.9.2</swagger.version>
