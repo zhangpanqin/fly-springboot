@@ -24,6 +24,8 @@
         <module>druid-demo</module>
         <module>swagger2-demo</module>
         <module>mybatis-plus-demo</module>
+        <module>spring-test</module>
+        <module>spring-validator</module>
     </modules>
     <properties>
         <swagger.version>2.9.2</swagger.version>
