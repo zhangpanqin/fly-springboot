@@ -15,6 +15,8 @@ import java.lang.reflect.Method;
  * @author 张攀钦
  * @date 2019-10-11-11:04
  * @description BeanPostProcessor 学习
+ *
+ * 得到初始化的 bean
  */
 @Configuration
 public class MyBeanPostProcessor implements BeanPostProcessor {
