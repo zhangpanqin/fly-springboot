@@ -2,6 +2,7 @@ package com.fly.mybatis.demo;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +14,8 @@ import java.util.List;
 @Mapper
 public interface SysUserMapper extends BaseMapper<SysUser> {
     List<SysUser> selectBy();
+
+    int updateSysUser(@Param("sysUser") SysUser sysUser);
+
+    void updateSysUsers();
 }

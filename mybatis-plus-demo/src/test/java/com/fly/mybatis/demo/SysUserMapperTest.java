@@ -40,5 +40,16 @@ public class SysUserMapperTest {
         System.out.println(sysUserMapper.selectBy());
     }
 
+    @Test
+    public void selectBy() {
+        sysUserMapper.updateSysUsers();
+    }
 
+    @Test
+    public void updateSysUser() {
+    }
+
+    @Test
+    public void updateSysUsers() {
+    }
 }
