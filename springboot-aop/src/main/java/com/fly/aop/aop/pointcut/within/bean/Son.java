@@ -11,11 +11,12 @@ import javax.validation.constraints.NotNull;
  */
 @Component
 public class Son extends Parent {
-    public void log( String name) {
+    public void log(String name) {
 
         System.out.println(name);
     }
-    public void log( Integer name) {
+
+    public void log(Integer name) {
 
         System.out.println(name);
     }

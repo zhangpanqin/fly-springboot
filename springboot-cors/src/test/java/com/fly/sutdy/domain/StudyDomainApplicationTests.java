@@ -22,12 +22,13 @@ public class StudyDomainApplicationTests {
     private AppProperties appProperties;
     @Autowired
     private WebApplicationContext webApplicationContext;
+
     @Test
     public void contextLoads() {
         System.out.println(appProperties);
         System.out.println(webApplicationContext instanceof AnnotationConfigWebApplicationContext);
     }
-    
+
     @Test
     public void readYml() throws IOException {
         URL resource = ClassUtils.getDefaultClassLoader().getResource("application.yml");

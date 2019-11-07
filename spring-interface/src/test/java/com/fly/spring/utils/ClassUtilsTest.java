@@ -16,11 +16,12 @@ public class ClassUtilsTest {
 
     @Test
     public void run() throws IOException {
-        ClassPathResource classPathResource =new ClassPathResource("demo/application.properties");
+        ClassPathResource classPathResource = new ClassPathResource("demo/application.properties");
         InputStream inputStream = classPathResource.getInputStream();
-        String read = IoUtil.read(inputStream,"UTF-8");
+        String read = IoUtil.read(inputStream, "UTF-8");
         System.out.println(read);
     }
+
     @Test
     public void run3() throws IOException {
         ClassPathResource urlResource = new ClassPathResource("demo/application.txt");

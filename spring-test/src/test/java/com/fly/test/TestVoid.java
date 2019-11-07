@@ -15,6 +15,7 @@ public class TestVoid {
         Mockito.doNothing().when(mock).getName(Mockito.anyString());
         mock.getName("11");
     }
+
     interface IDepartService {
         void getName(String name);
     }

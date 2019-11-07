@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class StudyDomainApplication {
 
     public static void main(String[] args) {
-       SpringApplication.run(StudyDomainApplication.class, args);
+        SpringApplication.run(StudyDomainApplication.class, args);
     }
 
 }

@@ -18,23 +18,34 @@
     </parent>
 
     <modules>
+        <module>druid-demo</module>
         <module>springboot-aop</module>
+        <module>mybatis-plus-demo</module>
         <module>springboot-web</module>
         <module>springboot-cors</module>
-        <module>druid-demo</module>
         <module>swagger2-demo</module>
-        <module>mybatis-plus-demo</module>
         <module>spring-test</module>
         <module>spring-validator</module>
+        <module>spring-interface</module>
+        <module>spring-boot-maven</module>
     </modules>
     <properties>
+        <java.version>1.8</java.version>
         <swagger.version>2.9.2</swagger.version>
         <guava.version>27.0.1-jre</guava.version>
         <fastjson.version>1.2.59</fastjson.version>
+        <spring-boot.version>2.1.9.RELEASE</spring-boot.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-dependencies</artifactId>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>

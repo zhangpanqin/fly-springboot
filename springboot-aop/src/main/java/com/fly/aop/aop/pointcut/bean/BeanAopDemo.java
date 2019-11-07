@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanAopDemo {
 
-    public void log(){
+    public void log() {
         System.out.println("log1");
     }
 }

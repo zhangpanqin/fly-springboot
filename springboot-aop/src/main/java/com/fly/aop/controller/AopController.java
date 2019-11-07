@@ -17,9 +17,9 @@ public class AopController {
 
     @AopAnnotation
     @GetMapping(value = "/aop/annotation")
-    public Map getMessage(){
+    public Map getMessage() {
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
-        objectObjectHashMap.put("1","2");
+        objectObjectHashMap.put("1", "2");
         return objectObjectHashMap;
     }
 }

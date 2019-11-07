@@ -16,19 +16,19 @@ public class DruidDemoApplicationTests {
 
     @Test
     public void contextLoads() throws InterruptedException {
-        int a=0;
+        int a = 0;
 
-        if(a<=500){
-            new Thread(()->{
+        if (a <= 500) {
+            new Thread(() -> {
                 System.out.printf("", depotDao.allDepots(1));
             }).start();
             a++;
         }
 
         Thread.sleep(1000);
-        a=0;
-        if(a<=500){
-            new Thread(()->{
+        a = 0;
+        if (a <= 500) {
+            new Thread(() -> {
                 System.out.printf("", depotDao.allDepots(1));
             }).start();
             a++;

@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.validation.Validator;
+import org.springframework.web.util.WebUtils;
+
+import javax.servlet.ServletContext;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,14 +21,19 @@ public class StudyAopApplicationTests {
 
     @Autowired
     private BeanAopDemo2 beanAopDemo2;
+
     @Test
     public void contextLoads() {
-     beanAopDemo.log();
+        beanAopDemo.log();
     }
+
+
+    @Autowired
+    ServletContext servletContext;
 
     @Test
     public void test2() {
-        beanAopDemo2.log();
+        System.out.println(WebUtils.getTempDir(servletContext).getAbsolutePath());
     }
 
 }

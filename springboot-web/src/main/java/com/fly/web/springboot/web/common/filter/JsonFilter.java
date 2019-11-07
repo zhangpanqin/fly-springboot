@@ -7,14 +7,17 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 /**
  * @author 张攀钦
  * @date 2019/8/21-13:50
  * 注册过滤器拦截
  */
-@WebFilter(filterName = "com.fly.web.springboot.web.common.filter.JsonFilter", urlPatterns = "/servlet/json/*")
+@WebFilter(filterName = "com.fly.web.springboot.web.common.filter.JsonFilter", urlPatterns = "/*")
 @Slf4j
 @Component
 public class JsonFilter implements Filter {
@@ -29,10 +32,11 @@ public class JsonFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        System.out.println("JsonFilter-执行过滤操作");
-        demoService.log();
+        // 使用 原始的 httpServletRequest 进行业务操作
+        String body = request.getReader().lines().collect(Collectors.joining());
+        System.out.println();
+        // 传递包装类
         chain.doFilter(request, response);
-        System.out.println("JsonFilter-chain.doFilter-执行过滤操作");
     }
 
     @Override

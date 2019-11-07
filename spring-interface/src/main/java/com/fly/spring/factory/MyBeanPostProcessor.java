@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
  * @author 张攀钦
  * @date 2019-10-11-11:04
  * @description BeanPostProcessor 学习
- *
+ * <p>
  * 得到初始化的 bean
  */
 @Configuration
@@ -23,7 +23,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        if(bean instanceof WebMvcConfig){
+        if (bean instanceof WebMvcConfig) {
             System.out.println(bean);
             System.out.println(beanName);
         }
@@ -32,13 +32,13 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if(bean instanceof WebMvcConfig){
+        if (bean instanceof WebMvcConfig) {
             System.out.println(bean);
             System.out.println(beanName);
             Method[] allDeclaredMethods = ReflectionUtils.getAllDeclaredMethods(bean.getClass());
             for (Method allDeclaredMethod : allDeclaredMethods) {
                 MyListener annotation = AnnotationUtils.findAnnotation(allDeclaredMethod, MyListener.class);
-                if (annotation!=null){
+                if (annotation != null) {
                     try {
                         System.out.println(allDeclaredMethod.invoke(bean));
                     } catch (IllegalAccessException e) {

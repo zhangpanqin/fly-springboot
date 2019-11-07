@@ -20,6 +20,7 @@ import org.springframework.validation.Validator;
 public class UserDemoTest {
     @Autowired
     private Validator validator;
+
     @Test
     public void run3() {
         UserDemo userDemo = new UserDemo();

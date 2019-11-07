@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @date 2019-08-20-13:38
  * @description 配置和 mvc 相关
  */
-@Configuration
+//@Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
     /**
      * 简单的url 转发或重定向

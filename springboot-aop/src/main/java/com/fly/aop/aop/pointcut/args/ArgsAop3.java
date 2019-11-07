@@ -15,11 +15,11 @@ public class ArgsAop3 {
      */
 
     @Pointcut("within(com.fly.aop..*)&&@args(com.fly.aop.aop.pointcut.args.annotation.ArgsTest)")
-    public void checkParam(){
+    public void checkParam() {
     }
 
     @Before(value = "checkParam()")
-    public void before(){
+    public void before() {
         System.out.println("before");
     }
 }

@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
 public class AopAspect {
 
     @Pointcut(value = "@annotation(com.fly.aop.annotation.AopAnnotation)")
-    public void annotationPointcut(){
+    public void annotationPointcut() {
 
     }
 
     @Before(value = "annotationPointcut()")
-    public void before(){
+    public void before() {
         System.out.println(111);
     }
 }

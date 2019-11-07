@@ -15,7 +15,7 @@ public class DruidServletConfig {
 
     @Bean
     public ServletRegistrationBean<StatViewServlet> druidStatViewServlet() {
-        ServletRegistrationBean<StatViewServlet> registrationBean = new ServletRegistrationBean<>(new StatViewServlet(),  "/druid/*");
+        ServletRegistrationBean<StatViewServlet> registrationBean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
         // IP白名单 (没有配置或者为空，则允许所有访问)
         registrationBean.addInitParameter("allow", "localhost");
         registrationBean.addInitParameter("allow", "127.0.0.1");

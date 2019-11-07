@@ -12,7 +12,7 @@ import javax.validation.Valid;
  */
 @Service
 public class UserServiceImpl {
-    public String log(@Valid @Length(max = 5) String name){
+    public String log(@Valid @Length(max = 5) String name) {
         return name;
     }
 }

@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * @description 测试 args 匹配注解
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE,ElementType.METHOD,ElementType.FIELD,ElementType.PARAMETER})
+@Target({ElementType.TYPE, ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 public @interface ArgsTest {
 
 }

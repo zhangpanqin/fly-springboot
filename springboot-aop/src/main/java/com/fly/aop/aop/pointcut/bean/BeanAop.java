@@ -15,11 +15,11 @@ import org.springframework.context.annotation.Configuration;
 public class BeanAop {
 
     @Pointcut("bean(beanAopDemo)")
-    public void checkParam(){
+    public void checkParam() {
     }
 
     @Before("checkParam()")
-    public void before(){
+    public void before() {
         System.out.println("before");
     }
 }

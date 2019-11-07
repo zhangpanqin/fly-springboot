@@ -25,6 +25,7 @@ public class UserControllerTest2 {
     private MockMvc mockMvc;
     @Autowired
     private WebApplicationContext wac;
+
     @Before
     public void setUp() throws Exception {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();

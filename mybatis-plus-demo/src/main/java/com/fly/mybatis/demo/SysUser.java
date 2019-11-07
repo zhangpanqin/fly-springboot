@@ -21,7 +21,7 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value = "sys_user",autoResultMap = true)
+@TableName(value = "sys_user", autoResultMap = true)
 public class SysUser implements Serializable {
     @TableId(value = "sys_id", type = IdType.AUTO)
     private Integer sysId;
@@ -35,7 +35,7 @@ public class SysUser implements Serializable {
     @TableField(value = "sex_enum")
     private String sexEnum;
 
-    @TableField(value = "ext_json",typeHandler = JacksonTypeHandler.class)
+    @TableField(value = "ext_json", typeHandler = JacksonTypeHandler.class)
     private UserInfo extJson;
 
     private static final long serialVersionUID = 1L;
