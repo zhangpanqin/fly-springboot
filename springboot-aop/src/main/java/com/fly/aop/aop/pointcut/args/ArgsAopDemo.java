@@ -12,10 +12,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ArgsAopDemo {
-    public void noAnnotation(ArgsBeanNoAnnotation argsBean){
+    public void noAnnotation(ArgsBeanNoAnnotation argsBean) {
         System.out.println(argsBean);
     }
-    public void withAnnotation(ArgsBean argsBean){
+
+    public void withAnnotation(ArgsBean argsBean) {
         System.out.println(argsBean);
     }
 }

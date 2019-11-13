@@ -15,24 +15,26 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class WithinAopTest   {
+public class WithinAopTest {
 
     @Autowired
     private Parent parent;
 
     @Autowired
     private Son son;
-    
+
     @Test
-    public void test1(){
+    public void test1() {
         parent.log();
     }
+
     @Test
-    public void log2(){
+    public void log2() {
         son.log("ceshi-name");
     }
+
     @Test
-    public void log3(){
+    public void log3() {
         son.log(11);
     }
 }

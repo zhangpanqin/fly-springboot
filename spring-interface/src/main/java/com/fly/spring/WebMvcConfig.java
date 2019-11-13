@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
  * @description
  */
 @Configuration
-public class WebMvcConfig{
+public class WebMvcConfig {
     @MyListener
-    public String log(){
+    public String log() {
         return "测试";
     }
 }

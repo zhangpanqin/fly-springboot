@@ -14,11 +14,11 @@ public class WithinAop {
      */
 
     @Pointcut("within(com.fly.aop.aop.pointcut.within.bean.Parent+)&&args(java.lang.String)")
-    public void checkParam(){
+    public void checkParam() {
     }
 
     @Before(value = "checkParam()&&args(name)")
-    public void before(String name){
-        System.out.println("before"+name);
+    public void before(String name) {
+        System.out.println("before" + name);
     }
 }

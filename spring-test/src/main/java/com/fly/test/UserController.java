@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @GetMapping(value = "/users")
-    public ResponseDataUtil listUsers(){
+    public ResponseDataUtil listUsers() {
         return ResponseDataUtil.ok();
     }
 }

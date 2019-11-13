@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class TddDemoTest {
     interface IUserService {
-        String getName(HttpServletRequest request,String name);
+        String getName(HttpServletRequest request, String name);
     }
+
     class UserServiceImpl implements IUserService {
 
         @Override
@@ -22,11 +23,12 @@ public class TddDemoTest {
             return request.getParameter("name");
         }
     }
+
     private IUserService userService;
 
     @Before
-    public void before(){
-        userService=new UserServiceImpl();
+    public void before() {
+        userService = new UserServiceImpl();
     }
 
     @Test
@@ -34,7 +36,7 @@ public class TddDemoTest {
         HttpServletRequest mock = Mockito.mock(HttpServletRequest.class);
         Mockito.when(mock.getParameter(Mockito.anyString())).thenReturn("1");
         String name = userService.getName(mock, "1");
-        Assert.assertEquals("1",name);
+        Assert.assertEquals("1", name);
     }
 
     @Test

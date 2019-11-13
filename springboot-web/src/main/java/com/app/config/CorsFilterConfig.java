@@ -21,7 +21,7 @@ public class CorsFilterConfig {
     /**
      * 配置 cors 过滤器
      */
-    private CorsConfigurationSource getMyCorsConfigurationSource(String path){
+    private CorsConfigurationSource getMyCorsConfigurationSource(String path) {
         CorsConfiguration config = new CorsConfiguration();
         // 设置跨域允许携带 cookie
         config.setAllowCredentials(true);
@@ -35,8 +35,8 @@ public class CorsFilterConfig {
     }
 
     @Bean
-    public FilterRegistrationBean registrationCorsFilterBean(){
-        FilterRegistrationBean filterRegistrationBean =new FilterRegistrationBean();
+    public FilterRegistrationBean registrationCorsFilterBean() {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
         // 所有的请求跨域
         CorsConfigurationSource myCorsConfigurationSource = getMyCorsConfigurationSource("/**");
         CorsFilter corsFilterConfig = new CorsFilter(myCorsConfigurationSource);

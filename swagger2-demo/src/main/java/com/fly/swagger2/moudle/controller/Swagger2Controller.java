@@ -15,16 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Api(tags = {"角色管理"})
 public class Swagger2Controller {
-    @ApiOperation(value = "查询所有角色2",tags={"角色管理"})
+    @ApiOperation(value = "查询所有角色2", tags = {"角色管理"})
     @GetMapping(value = "/listRoles2")
-    public ResponseUtil<UserDO> listRoles2(){
-        UserDO userDO =new UserDO();
+    public ResponseUtil<UserDO> listRoles2() {
+        UserDO userDO = new UserDO();
         return ResponseUtil.ok(userDO);
     }
-    @ApiOperation(value = "查询所有角色2",tags={"角色管理"})
+
+    @ApiOperation(value = "查询所有角色2", tags = {"角色管理"})
     @GetMapping(value = "/listRoles1")
-    public ResponseUtil<UserDO> listRoles1(){
-        UserDO userDO =new UserDO();
+    public ResponseUtil<UserDO> listRoles1() {
+        UserDO userDO = new UserDO();
         return ResponseUtil.ok(userDO);
     }
 }

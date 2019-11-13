@@ -14,11 +14,11 @@ public class TargetAop {
      */
 
     @Pointcut("target(com.fly.aop.aop.pointcut.target.service.TargetService)&&args(java.lang.String)")
-    public void checkParam(){
+    public void checkParam() {
     }
 
     @Before("checkParam()")
-    public void before(){
+    public void before() {
         System.out.println("before");
     }
 }

@@ -14,11 +14,12 @@ import javax.annotation.PreDestroy;
 public class StudyInitializingBean {
 
     @PostConstruct
-    public void test(){
+    public void test() {
         System.out.println("PostConstruct");
     }
+
     @PreDestroy
-    public void preDestroy(){
+    public void preDestroy() {
         System.out.println("preDestroy");
     }
 }

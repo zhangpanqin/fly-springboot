@@ -7,7 +7,11 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 /**
  * @author 张攀钦
@@ -29,10 +33,11 @@ public class ContentTypeCharsetFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        System.out.println("ContentTypeCharsetFilter-执行过滤操作");
-        demoService.log();
+        // 使用 原始的 httpServletRequest 进行业务操作
+        String body = request.getReader().lines().collect(Collectors.joining());
+        System.out.println(body);
+        // 传递包装类
         chain.doFilter(request, response);
-        System.out.println("ContentTypeCharsetFilter-chain.doFilter-放行之后");
 
     }
 

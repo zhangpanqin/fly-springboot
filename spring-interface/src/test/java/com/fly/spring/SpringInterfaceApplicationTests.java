@@ -13,6 +13,7 @@ public class SpringInterfaceApplicationTests {
 
     @Autowired
     private ApplicationContext applicationContext;
+
     @Test
     public void contextLoads() {
         System.out.println(applicationContext);

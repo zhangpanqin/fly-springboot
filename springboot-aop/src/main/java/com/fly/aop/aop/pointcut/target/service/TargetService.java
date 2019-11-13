@@ -6,5 +6,5 @@ package com.fly.aop.aop.pointcut.target.service;
  * @description
  */
 public abstract class TargetService {
-    public  abstract void log();
+    public abstract void log();
 }

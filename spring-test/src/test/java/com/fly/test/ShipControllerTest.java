@@ -26,28 +26,29 @@ import java.io.IOException;
 // 带有@SpringBootApplication 的主类
 @SpringBootTest(classes = {SpringTestApplication.class})
 // 将需要模拟的工具类加入其中
-@PrepareForTest(value={HttpUtil.class})
+@PrepareForTest(value = {HttpUtil.class})
 // 若报错信息中，出现没有实例化对象，将报名写到下面中
-@PowerMockIgnore({"javax.management.*", "javax.net.ssl.*","cn.hutool.*"})
+@PowerMockIgnore({"javax.management.*", "javax.net.ssl.*", "cn.hutool.*"})
 public class ShipControllerTest {
-     
+
     private MockMvc mvc;
 
     @Autowired
     private ShipController shipController;
 
-    
+
     @Before
     public void before() throws IOException {
         // 创建 MockMvc
         mvc = MockMvcBuilders.standaloneSetup(shipController).build();
     }
+
     @Test
     public void getName() throws Exception {
         PowerMockito.mockStatic(HttpUtil.class);
         Mockito.when(HttpUtil.get(ArgumentMatchers.anyString())).thenReturn("{containerId:22,shipId:10003,tier:22,bayno:3,row:22,company:22}");
         mvc.perform(MockMvcRequestBuilders.get("/ships"))
-                .andDo(data->System.out.println(data.getResponse().getContentAsString()))
+                .andDo(data -> System.out.println(data.getResponse().getContentAsString()))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

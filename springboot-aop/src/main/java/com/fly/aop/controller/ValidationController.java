@@ -27,21 +27,24 @@ import java.util.Map;
  */
 @RestController
 @Api
+@Validated
 public class ValidationController {
 
     @AopAnnotation
     @ApiOperation(value = "11")
     @PostMapping(value = "/users/1")
-    public Map insertUser1(){
+    public Map insertUser1() {
         HashMap ret = new HashMap(16);
-        ret.put("data","userDTO");
+        ret.put("data", "userDTO");
         return ret;
     }
+
     @ApiOperation(value = "11")
     @PostMapping(value = "/users/2")
-    public Map insertUser2(){
+    @AopAnnotation
+    public Map insertUser2(@Validated UserDTO userDTO) {
         HashMap ret = new HashMap(16);
-        ret.put("data","userDTO");
+        ret.put("data", userDTO);
         return ret;
     }
 }

@@ -19,10 +19,10 @@ import java.io.IOException;
 @Configuration
 @Slf4j
 public class TomcatConfig {
-    private static final String TOMCAT_JSON_PATH="classpath:config/tomcat.json";
+    private static final String TOMCAT_JSON_PATH = "classpath:config/tomcat.json";
 
     @Bean
-    @ConditionalOnResource(resources={TOMCAT_JSON_PATH})
+    @ConditionalOnResource(resources = {TOMCAT_JSON_PATH})
     public MyTomcatProperties getTomcatProperties() throws IOException {
         log.info("---------------------------初始化配置文件---------------------------------------");
         File tomcatConfigJson = ResourceUtils.getFile(TOMCAT_JSON_PATH);

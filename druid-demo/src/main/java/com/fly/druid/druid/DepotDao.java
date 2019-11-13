@@ -14,5 +14,5 @@ import java.util.Map;
 @Mapper
 public interface DepotDao {
 
-    List<Map<String,Object>>allDepots(@Param("id") Integer id);
+    List<Map<String, Object>> allDepots(@Param("id") Integer id);
 }

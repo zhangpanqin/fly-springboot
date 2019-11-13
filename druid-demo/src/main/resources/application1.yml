@@ -10,7 +10,7 @@ spring:
       validation-query: select 1
       filters: slf4j
       # \u914D\u7F6E\u521D\u59CB\u5316\u8FDE\u63A5\u6C60\uFF0C\u94FE\u63A5\u5931\u8D25\u62A5\u9519\u5173\u95ED\u94FE\u63A5
-#      initial-size: 5
+      #      initial-size: 5
       # \u914D\u7F6E\u6700\u5C0F\u94FE\u63A5
       min-idle: 10
       # \u914D\u7F6E\u6700\u5927\u8FDE\u63A5

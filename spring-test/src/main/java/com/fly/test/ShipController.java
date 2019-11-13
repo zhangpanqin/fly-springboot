@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ShipController {
 
     @GetMapping(value = "/ships")
-    public ResponseDataUtil listShips(){
+    public ResponseDataUtil listShips() {
         String s = HttpUtil.get("http://localhost:8081/ships");
         return ResponseDataUtil.ok(s);
     }

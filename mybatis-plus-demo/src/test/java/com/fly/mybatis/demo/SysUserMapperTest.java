@@ -28,7 +28,7 @@ public class SysUserMapperTest {
         sysUserMapper.insert(demo);
 
     }
-    
+
     @Test
     public void selectAll() {
         SysUser sysUser = sysUserMapper.selectById(1);

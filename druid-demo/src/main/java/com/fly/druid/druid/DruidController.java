@@ -18,16 +18,18 @@ public class DruidController {
 
     @Autowired
     private DepotDao depotDao;
+
     @GetMapping("/api/depots")
-    public List<Map<String,Object>> listDepots(){
+    public List<Map<String, Object>> listDepots() {
         return depotDao.allDepots(1);
     }
+
     @GetMapping("/api/test")
     public Map test() throws InterruptedException {
-        int a=0;
+        int a = 0;
         depotDao.allDepots(1);
-        Map map=new HashMap();
-        map.put("key","value3");
+        Map map = new HashMap();
+        map.put("key", "value3");
         return map;
     }
 }
