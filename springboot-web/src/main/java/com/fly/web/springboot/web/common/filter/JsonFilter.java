@@ -32,9 +32,6 @@ public class JsonFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        // 使用 原始的 httpServletRequest 进行业务操作
-        String body = request.getReader().lines().collect(Collectors.joining());
-        System.out.println();
         // 传递包装类
         chain.doFilter(request, response);
     }

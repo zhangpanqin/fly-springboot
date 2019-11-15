@@ -1,26 +1,29 @@
-package com.fly.web.springboot.web;
+package com.fly.web.springboot.web.runner;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.DispatcherServlet;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class SpringbootWebApplicationTests {
+/**
+ * @author 张攀钦
+ * @date 2019-11-10-01:13
+ * @description
+ */
+@Component
+public class ApplicationContextDemo implements CommandLineRunner {
+
 
     @Autowired
     private ApplicationContext applicationContext;
 
     @Autowired
     private DispatcherServlet dispatcherServlet;
-    @Test
-    public void contextLoads() {
+
+    @Override
+    public void run(String... args) throws Exception {
         System.out.println(applicationContext);
         System.out.println(dispatcherServlet.getWebApplicationContext());
     }
-
 }
