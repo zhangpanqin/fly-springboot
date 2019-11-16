@@ -1,5 +1,6 @@
 package com.fly.exception;
 
+import com.fly.exception.common.exception.StartException;
 import org.springframework.boot.diagnostics.FailureAnalysis;
 import org.springframework.boot.diagnostics.FailureAnalyzer;
 import org.springframework.boot.web.server.PortInUseException;
@@ -12,22 +13,10 @@ import org.springframework.stereotype.Component;
  * @description
  */
 @Component
-public class MyFailureAnalyzerImpl implements FailureAnalyzer {
+public class MyFailureAnalyzerImpl{
 
-    /**
-     * Returns an analysis of the given {@code failure}, or {@code null} if no analysis
-     * was possible.
-     *
-     * @param failure the failure
-     * @return the analysis or {@code null}
-     */
-    @Override
-    public FailureAnalysis analyze(Throwable failure) {
-        return new FailureAnalysis("", "", failure);
-    }
-
-    @Bean
-    public String getMyTomcatProperties2() {
-        throw new PortInUseException(8080);
+//    @Bean
+    public String startThrowException() {
+        throw new StartException("模拟启动异常");
     }
 }

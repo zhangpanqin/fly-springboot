@@ -28,6 +28,7 @@
         <module>spring-validator</module>
         <module>spring-interface</module>
         <module>spring-boot-maven</module>
+        <module>exception-study</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
