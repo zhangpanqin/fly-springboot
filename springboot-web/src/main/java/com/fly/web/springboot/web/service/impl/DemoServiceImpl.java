@@ -16,5 +16,7 @@ public class DemoServiceImpl implements DemoService {
     @Override
     public void log() {
         log.info("DemoServiceImpl.log-被调用");
+        log.info("DemoServiceImpl.log-被调用");
+        log.info("DemoServiceImpl.log-被调用");
     }
 }

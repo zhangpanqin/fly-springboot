@@ -21,15 +21,5 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserDemoTest {
-    @Autowired
-    private Validator validator;
 
-    @Test
-    public void run3() {
-        Car car = new Car(null, "DD-AB-123", 1);
-        Errors errors = new BeanPropertyBindingResult(car, "person");
-        validator.validate(car, errors);
-        List<FieldError> fieldError = errors.getFieldErrors();
-        fieldError.forEach(item -> System.out.println(item.getDefaultMessage()));
-    }
 }

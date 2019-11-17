@@ -31,5 +31,5 @@ hs_err_pid*
 **/resources/rebel.xml
 **/rebel.xml
 **/.rebel-remote.xml.bak
-**/com.fly.mybatis.demo.txt
-**/com.fly.mybatis.demo.xml
+**/demo.txt
+**/demo.xml
