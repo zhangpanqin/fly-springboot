@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: dev
+app:
+  name: 张攀钦-dev
+  age: 18

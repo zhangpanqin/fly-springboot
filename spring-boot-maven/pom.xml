@@ -15,6 +15,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <application.dev>dev</application.dev>
+        <application.pro>pro</application.pro>
     </properties>
 
     <dependencies>
@@ -54,5 +56,21 @@
             </plugin>
         </plugins>
     </build>
-
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <spring.active>dev</spring.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>pro</id>
+            <properties>
+                <spring.active>pro</spring.active>
+            </properties>
+        </profile>
+    </profiles>
 </project>
