@@ -30,6 +30,8 @@
         <module>spring-boot-maven</module>
         <module>exception-study</module>
         <module>async-study</module>
+        <module>websocket-study</module>
+        <module>es-study</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
