@@ -1,8 +1,6 @@
 package com.fly.mybatis;
 
-import org.junit.Test;
-import org.omg.CORBA.PUBLIC_MEMBER;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test;
 
 
 public class MybatisApplicationTests {

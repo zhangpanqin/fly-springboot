@@ -1,6 +1,6 @@
 package com.fly.exception;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.core.ResolvableType;
 
 import java.lang.reflect.ParameterizedType;
