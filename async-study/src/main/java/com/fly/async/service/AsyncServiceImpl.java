@@ -4,8 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
+import org.springframework.util.concurrent.ListenableFuture;
 
-import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 
 /**
@@ -47,5 +48,38 @@ public class AsyncServiceImpl {
         Thread.sleep(5000);
         log.info("异步方法内部线程名称：{}", Thread.currentThread().getName());
         return new AsyncResult<>("hello async-5");
+    }
+
+    /**
+     * 添加回调函数
+     */
+    @Async
+    public Future<String> asyncWithResult3() throws InterruptedException {
+        Thread.sleep(5000);
+        log.info("异步方法内部线程名称：{}", Thread.currentThread().getName());
+        ListenableFuture<String> stringListenableFuture = AsyncResult.forValue("hello async-5");
+        stringListenableFuture.addCallback((t) -> {
+            log.info("执行成功" + t);
+        }, (t) -> {
+            log.info("执行失败");
+        });
+        return stringListenableFuture;
+    }
+
+    /**
+     * 添加回调函数 CompletableFuture
+     */
+    @Async
+    public Future<String> asyncWithResult4() throws InterruptedException {
+        Thread.sleep(5000);
+        log.info("异步方法内部线程名称：{}", Thread.currentThread().getName());
+        ListenableFuture<String> stringListenableFuture = AsyncResult.forValue("hello async-5");
+        CompletableFuture<String> completable = stringListenableFuture.completable();
+        completable.handleAsync((t, u) -> {
+            log.error("测试异常", u);
+            log.info("completable.handleAsync 所在线程".concat(Thread.currentThread().getName()).concat(t));
+            return u;
+        });
+        return completable;
     }
 }

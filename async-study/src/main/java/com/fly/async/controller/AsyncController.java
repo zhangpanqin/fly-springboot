@@ -53,4 +53,26 @@ public class AsyncController {
         ret.put("str",s2.concat(s));
         return RetUtil.success(ret);
     }
+
+    @GetMapping(value = "/sync-result/3")
+    public RetUtil syncWithResult3() throws InterruptedException, ExecutionException {
+        final long millis = Clock.systemUTC().millis();
+
+        Future<String> stringFuture = asyncService.asyncWithResult3();
+        final long millis2 = Clock.systemUTC().millis();
+        Map ret = new HashMap<>(4);
+        ret.put("time", millis2 - millis);
+        return RetUtil.success(ret);
+    }
+
+    @GetMapping(value = "/sync-result/4")
+    public RetUtil syncWithResult4() throws InterruptedException, ExecutionException {
+        final long millis = Clock.systemUTC().millis();
+
+        Future<String> stringFuture = asyncService.asyncWithResult4();
+        final long millis2 = Clock.systemUTC().millis();
+        Map ret = new HashMap<>(4);
+        ret.put("time", millis2 - millis);
+        return RetUtil.success(ret);
+    }
 }

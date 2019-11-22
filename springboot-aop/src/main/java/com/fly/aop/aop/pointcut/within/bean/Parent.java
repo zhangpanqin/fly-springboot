@@ -11,7 +11,16 @@ import org.springframework.stereotype.Component;
 @Component
 @Primary
 public class Parent {
+
+
     public void log() {
+        this.log2();
+        System.out.println("Parent.log");
+    }
+
+    // 保存发的文章
+    public void log2() {
+
         System.out.println("Parent.log");
     }
 }
