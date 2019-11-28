@@ -13,6 +13,7 @@ public class EsStudyApplicationTests {
     @Autowired
     private ElasticsearchRestTemplate elasticsearchRestTemplate;
 
+
     @Test
     public void contextLoads() {
         GetQuery byId = GetQuery.getById("1");
