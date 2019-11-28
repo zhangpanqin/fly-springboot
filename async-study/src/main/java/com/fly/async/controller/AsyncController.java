@@ -3,7 +3,9 @@ package com.fly.async.controller;
 import com.fly.async.service.AsyncServiceImpl;
 import com.fly.async.util.RetUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Clock;
@@ -24,9 +26,12 @@ public class AsyncController {
     private AsyncServiceImpl asyncService;
 
     @GetMapping(value = "/async")
-    public RetUtil async() throws InterruptedException {
+    public RetUtil async(@RequestHeader String name, @CookieValue String age) throws InterruptedException {
         asyncService.asyncLog("11");
-        return RetUtil.success();
+        Map map =new HashMap();
+        map.put("name",name);
+        map.put("age",age);
+        return RetUtil.success(map);
     }
 
     @GetMapping(value = "/sync")
