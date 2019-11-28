@@ -7,11 +7,11 @@
         <artifactId>springboot-study</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.fly</groupId>
-    <artifactId>spring-validator</artifactId>
+    <groupId>com.fly.es</groupId>
+    <artifactId>es-study</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-validator</name>
-    <description>Demo project for Spring Boot</description>
+    <name>es-study</name>
+    <description>学习 es 数据库</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -20,11 +20,11 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -39,17 +39,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
             <exclusions>
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

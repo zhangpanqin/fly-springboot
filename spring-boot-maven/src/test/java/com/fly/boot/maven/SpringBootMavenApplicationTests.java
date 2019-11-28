@@ -1,14 +1,23 @@
 package com.fly.boot.maven;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
-class SpringBootMavenApplicationTests {
+@RunWith(SpringRunner.class)
+public class SpringBootMavenApplicationTests {
+
+    @Autowired
+    private AppProperties appProperties;
 
     @Test
-    void contextLoads() {
+    public void contextLoads() {
+        System.out.println(appProperties);
+
     }
 
 }
