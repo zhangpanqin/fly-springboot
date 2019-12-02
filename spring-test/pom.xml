@@ -11,7 +11,7 @@
     <artifactId>spring-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-test</name>
-    <description>Demo project for Spring Boot</description>
+    <description>DemoServletContainerInitializer project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>

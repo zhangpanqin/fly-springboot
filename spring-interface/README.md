@@ -13,3 +13,9 @@ Dozer[blog](https://mp.weixin.qq.com/s?__biz=Mzg3NjIxMjA1Ng==&mid=2247483685&idx
 ```java
 ApplicationEventPublisherAware 
 ```
+### resource
+
+```java
+ClassRelativeResourceLoader 读取 class 所在包下的资源
+PathMatchingResourcePatternResolver 读取一系列的资源
+```
