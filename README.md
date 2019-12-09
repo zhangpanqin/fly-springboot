@@ -22,7 +22,7 @@ public RetUtil<UserDemo> test2(@Valid UserDemo userDemo) {
 ![Spring Bean 加载](./picture/beanlife.png)
 
 ### SpringBoot 结合 IDEA 切换激活环境 
-![Spring Bean 加载](./picture/spring-active.png)
+![配置环切换](./picture/springactive.png)
 
 ### 打包
 
