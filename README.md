@@ -19,7 +19,11 @@ public RetUtil<UserDemo> test2(@Valid UserDemo userDemo) {
 ### Spring Bean 加载
 [图片来源](https://mrbird.cc/Spring-Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.html)
 
-![Spring Bean 加载](picture/beanlife.png)
+[Spring Bean 加载](picture/beanlife.png)
 
 ### SpringBoot 结合 IDEA 切换激活环境 
-![Spring Bean 加载](picture/spring-active.png)
+[Spring Bean 加载](picture/spring-active.png)
+
+### 打包
+
+[maven-assembly-plugin 打包](http://springcloud.cn/view/423)
