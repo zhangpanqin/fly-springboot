@@ -1,8 +1,8 @@
 spring:
   datasource:
     # \u65F6\u533A\u914D\u7F6E serverTimezone=GMT%2B8 \u4E1C\u516B\u533A
-    url: jdbc:mysql://localhost:3306/study_mysql?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&waitTimeout=10
-    username: root1
+    url: jdbc:mysql://localhost:3306/mysql_test?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&waitTimeout=10
+    username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -27,21 +27,20 @@ spring:
       min-evictable-idle-time-millis: 300000
       filter:
         stat:
-          slow-sql-millis: 50
+          slow-sql-millis: 1000
           enabled: true
-          log-slow-sql: true
+          log-slow-sql: false
 logging:
   config: classpath:logback-spring.xml
   #  \u65E5\u5FD7\u683C\u5F0F${log-path}/${log-name}.log
   log-path: logs
   log-file: druid-study.log
   level:
-    root: debug
-    com.fly.druid: debug
-mybatis:
+    root: info
+    com.fly.druid: info
+
+mybatis-plus:
+  type-handlers-package: com.baomidou.mybatisplus.extension.handlers
   mapper-locations: classpath:mapper/*.xml
   configuration:
-    # \u914D\u7F6E\u6570\u636E\u8868\u5B57\u6BB5\u6620\u5C04\u5230\u5B9E\u4F53\u7C7B
-    mapUnderscoreToCamelCase: true
-    # \u6307\u5B9AMybatis \u65E5\u5FD7\u7684\u5177\u4F53\u5B9E\u73B0
-    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    map-underscore-to-camel-case: true
