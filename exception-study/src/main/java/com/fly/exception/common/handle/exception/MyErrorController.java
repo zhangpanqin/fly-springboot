@@ -40,8 +40,8 @@ public class MyErrorController extends BasicErrorController {
 
 
     public MyErrorController(ErrorAttributes errorAttributes, ServerProperties serverProperties,
-                                List<ErrorViewResolver> errorViewResolvers) {
-        super( errorAttributes,  serverProperties.getError(), errorViewResolvers);
+                             List<ErrorViewResolver> errorViewResolvers) {
+        super(errorAttributes, serverProperties.getError(), errorViewResolvers);
     }
 
     @Override

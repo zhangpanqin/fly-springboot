@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fly.mybatis.dao.SudentMapper">
-  <resultMap id="BaseResultMap" type="com.fly.mybatis.entity.Sudent">
-    <!--@mbg.generated-->
-    <!--@Table sudent-->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="student_name" jdbcType="LONGVARCHAR" property="studentName" />
-    <result column="age" jdbcType="INTEGER" property="age" />
+    <resultMap id="BaseResultMap" type="com.fly.mybatis.entity.Sudent">
+        <!--@mbg.generated-->
+        <!--@Table sudent-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="student_name" jdbcType="LONGVARCHAR" property="studentName"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
 
-  </resultMap>
+    </resultMap>
 
-<resultMap id="resultMapStudentBO" type="com.fly.mybatis.entity.StudentBO">
-    <!--@mbg.generated-->
-    <!--@Table sudent-->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="student_name" jdbcType="LONGVARCHAR" property="studentName" />
-    <result column="age" jdbcType="INTEGER" property="age" />
-    <collection property="lists" ofType="com.fly.mybatis.entity.Course">
-        <id property="id" column="c2_id"/>
-        <result property="courseName" column="course_name"/>
-    </collection>
-</resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, student_name, age
-  </sql>
+    <resultMap id="resultMapStudentBO" type="com.fly.mybatis.entity.StudentBO">
+        <!--@mbg.generated-->
+        <!--@Table sudent-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="student_name" jdbcType="LONGVARCHAR" property="studentName"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <collection property="lists" ofType="com.fly.mybatis.entity.Course">
+            <id property="id" column="c2_id"/>
+            <result property="courseName" column="course_name"/>
+        </collection>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, student_name, age
+    </sql>
     <select id="findStudentBO" resultMap="resultMapStudentBO">
-        select s.*,c2.id as c2_id,c2.course_name from  sudent as s
+        select s.*,c2.id as c2_id,c2.course_name from sudent as s
         inner join studen_course sc on s.id = sc.sudent_id
         inner join course c2 on sc.course_id = c2.id where s.id=#{id};
     </select>

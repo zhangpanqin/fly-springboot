@@ -15,21 +15,21 @@ import java.io.InputStream;
  */
 public class MybatisMain {
     public static void main(String[] args) {
-        String resource="mybatis-config.xml";
-        InputStream inputStream=null;
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = null;
         try {
             inputStream = Resources.getResourceAsStream(resource);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        SqlSessionFactory sqlSessionFactory=null;
-        sqlSessionFactory=new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession sqlSession=null;
+        SqlSessionFactory sqlSessionFactory = null;
+        sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = null;
         try {
-            sqlSession=sqlSessionFactory.openSession();
-            RoleMapper roleMapper=sqlSession.getMapper(RoleMapper.class);
-            Role role=roleMapper.getRole(1L);
+            sqlSession = sqlSessionFactory.openSession();
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            Role role = roleMapper.getRole(1L);
             System.out.println(role);
             sqlSession.commit();
 
@@ -37,11 +37,10 @@ public class MybatisMain {
             // TODO Auto-generated catch block
             sqlSession.rollback();
             e.printStackTrace();
-        }finally {
+        } finally {
             sqlSession.close();
         }
     }
-
 
 
 }

@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class AnnotationListener {
 
-    @EventListener(value={ApplicationReadyEvent.class})
-    public void annotationListener(){
-        System.out.println(AnnotationListener.class.getName()+"启动成功了");
+    @EventListener(value = {ApplicationReadyEvent.class})
+    public void annotationListener() {
+        System.out.println(AnnotationListener.class.getName() + "启动成功了");
     }
 
 }

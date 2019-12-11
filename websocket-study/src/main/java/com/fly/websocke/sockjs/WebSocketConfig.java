@@ -13,7 +13,6 @@ import org.springframework.web.socket.config.annotation.*;
 public class WebSocketConfig implements WebSocketConfigurer {
 
 
-
     @Bean
     public WebSocketHandler myHandler() {
         return new MyHandler();
@@ -21,6 +20,6 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(myHandler(),"/endpointSang").setAllowedOrigins().withSockJS();
+        registry.addHandler(myHandler(), "/endpointSang").setAllowedOrigins().withSockJS();
     }
 }

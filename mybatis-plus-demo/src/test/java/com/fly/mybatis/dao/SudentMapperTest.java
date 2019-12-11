@@ -17,9 +17,10 @@ import static org.junit.Assert.*;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class SudentMapperTest {
-    
+
     @Autowired
     private SudentMapper sudentMapper;
+
     @Test
     public void findStudentBO() {
         final StudentBO studentBO = sudentMapper.findStudentBO(1);

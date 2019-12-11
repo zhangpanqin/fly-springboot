@@ -16,7 +16,8 @@ import java.util.concurrent.Executor;
 @Configuration
 @EnableAsync
 public class AsyncConfig implements AsyncConfigurer {
-    private static final String THREAD_PREFIX_NAME="mFlyYou-";
+    private static final String THREAD_PREFIX_NAME = "mFlyYou-";
+
     @Override
     public Executor getAsyncExecutor() {
         final ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();

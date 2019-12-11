@@ -14,6 +14,6 @@ public class MyRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        throw  new StartException("模拟启动失败的异常");
+        throw new StartException("模拟启动失败的异常");
     }
 }

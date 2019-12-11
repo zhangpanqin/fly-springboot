@@ -22,30 +22,33 @@
 </div>
 <script type="text/javascript">
     var stompClient = null;
-    var sock=null;
+    var sock = null;
+
     function setConnected(connected) {
         document.getElementById("connect").disabled = connected;
         document.getElementById("disconnect").disabled = !connected;
-        document.getElementById("conversationDiv").style.visibility = connected?'visible':'hidden';
+        document.getElementById("conversationDiv").style.visibility = connected ? 'visible' : 'hidden';
         $("#response").html();
     }
+
     function connect() {
         sock = new SockJS('/endpointSang?name=zhangpanqin');
-        sock.onopen = function() {
+        sock.onopen = function () {
             setConnected(true);
             console.log('open');
         };
 
-        sock.onmessage = function(e) {
+        sock.onmessage = function (e) {
             console.log('message', e.data);
             showResponse(e.data)
         };
 
-        sock.onclose = function() {
+        sock.onclose = function () {
             disconnect();
             console.log('close');
         };
     }
+
     function disconnect() {
         if (stompClient != null) {
             stompClient.disconnect();
@@ -53,11 +56,13 @@
         setConnected(false);
         console.log('Disconnected');
     }
+
     function sendName() {
         var name = $('#name').val();
         console.log('name:' + name);
         sock.send(JSON.stringify({'name': name}));
     }
+
     function showResponse(message) {
         $("#response").html(message);
     }

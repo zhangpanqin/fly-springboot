@@ -5,6 +5,6 @@ package com.fly.exception;
  * @date 2019-11-16-00:37
  * @description
  */
-public class MyList44<T extends String,u extends Demo> {
+public class MyList44<T extends String, u extends Demo> {
 }
 

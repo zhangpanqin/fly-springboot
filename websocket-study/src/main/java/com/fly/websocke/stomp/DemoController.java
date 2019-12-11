@@ -26,25 +26,25 @@ public class DemoController {
      */
 //    @Scheduled(fixedRateString="5000")
     public void mockPublicNews() {
-            System.out.println("打印");
+        System.out.println("打印");
 
-            List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
-            // 模拟产生3条
-            list.add("清华大学16位学霸为一事现身PK 简历吓坏网友 - " + randomInt());
-            list.add("闹市区树上长出6斤多蘑菇 保安大叔炒着吃了(图) - " + randomInt());
-            list.add("女司机第2次上路撞死过路老人 教练被抓走 司法频道 - " + randomInt());
+        // 模拟产生3条
+        list.add("清华大学16位学霸为一事现身PK 简历吓坏网友 - " + randomInt());
+        list.add("闹市区树上长出6斤多蘑菇 保安大叔炒着吃了(图) - " + randomInt());
+        list.add("女司机第2次上路撞死过路老人 教练被抓走 司法频道 - " + randomInt());
 
 
-            // 广播消息，注意记住这里的地址
-            template.convertAndSend("/topic/public_news", JSON.toJSONString(list));
+        // 广播消息，注意记住这里的地址
+        template.convertAndSend("/topic/public_news", JSON.toJSONString(list));
 
     }
 
     /**
      * 模拟公共新闻推送
      */
-    @Scheduled(fixedRateString="5000")
+    @Scheduled(fixedRateString = "5000")
     public void mockOtherNews() {
         System.out.println("打印");
 

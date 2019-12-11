@@ -21,11 +21,11 @@
         <p id="response"></p>
     </div>
 
-    <div >
+    <div>
         <label>订阅的公共消息</label>
         <div id="publicNews"></div>
     </div>
-    <div >
+    <div>
         <label>订阅的other消息</label>
         <div id="othersNews"></div>
     </div>
@@ -41,12 +41,14 @@
 //        $("#disconnect").disabled = !connected;
         $("#response").html();
     }
-    function subOthers(){
-        stompClient.send('/app/queue/other', {}, JSON.stringify({name:111}));
+
+    function subOthers() {
+        stompClient.send('/app/queue/other', {}, JSON.stringify({name: 111}));
     }
+
     function connect() {
         var url = "ws://localhost:8080/stomp";
-         stompClient = Stomp.client(url);
+        stompClient = Stomp.client(url);
         // 注意这里的header 暂时不是必须的。
         var headers = {
             login: 'mylogin',
@@ -90,9 +92,11 @@
     function showResponse(message) {
         $("#response").html(message);
     }
+
     function showPublicNews(message) {
         $("#publicNews").html(message);
     }
+
     function showOthersNews(message) {
         $("#othersNews").html(message);
     }

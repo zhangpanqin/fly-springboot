@@ -36,6 +36,7 @@ public class AsyncServiceImpl {
         Thread.sleep(8000);
         log.info("==================同步测试打印东西==================");
     }
+
     @Async
     public Future<String> asyncWithResult() throws InterruptedException {
         Thread.sleep(8000);

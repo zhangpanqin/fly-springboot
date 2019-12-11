@@ -16,15 +16,15 @@ public class MyFailureAnalysisReporter implements FailureAnalysisReporter {
     private EmailService emailService;
 
 
-    public MyFailureAnalysisReporter(){
-        emailService=new EmailService();
+    public MyFailureAnalysisReporter() {
+        emailService = new EmailService();
     }
 
     @Override
     public void report(FailureAnalysis analysis) {
         final Throwable cause = analysis.getCause();
         final String message = cause.getMessage();
-        emailService.sendEmail(String.join("","异常原因：",message));
+        emailService.sendEmail(String.join("", "异常原因：", message));
     }
 
 }
