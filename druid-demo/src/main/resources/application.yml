@@ -1,7 +1,7 @@
 spring:
   datasource:
     # \u65F6\u533A\u914D\u7F6E serverTimezone=GMT%2B8 \u4E1C\u516B\u533A
-    url: jdbc:mysql://localhost:3306/study_mysql?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&waitTimeout=10
+    url: jdbc:mysql://localhost:3306/mysql_test?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&waitTimeout=10
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
@@ -27,7 +27,7 @@ spring:
       min-evictable-idle-time-millis: 600000
       max-evictable-idle-time-millis: 900000
       poolPreparedStatements: true
-      maxPoolPreparedStatementsPerConnectionSize: 50
+      max-pool-prepared-statement-per-connection-size: 50
       keep-alive: true
       filter:
         slf4j:
@@ -46,9 +46,6 @@ spring:
       web-stat-filter:
         enabled: true
         exclusions: \*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
-
-
-
 logging:
   config: classpath:logback-spring.xml
   #  \u65E5\u5FD7\u683C\u5F0F${log-path}/${log-name}.log
@@ -58,10 +55,7 @@ logging:
   level:
     root: info
     com.fly.druid: warn
-mybatis:
+mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   configuration:
-    # \u914D\u7F6E\u6570\u636E\u8868\u5B57\u6BB5\u6620\u5C04\u5230\u5B9E\u4F53\u7C7B
-    mapUnderscoreToCamelCase: true
-    # \u6307\u5B9AMybatis \u65E5\u5FD7\u7684\u5177\u4F53\u5B9E\u73B0
-    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    map-underscore-to-camel-case: true
