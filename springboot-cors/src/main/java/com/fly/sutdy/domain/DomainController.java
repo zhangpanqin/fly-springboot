@@ -59,7 +59,6 @@ public class DomainController {
         return ret;
     }
 
-    //    @CrossOrigin(value = "http://192.168.203.50:8080",allowCredentials="true")
     @GetMapping(value = "/domain/ajax/cors/cookie")
     public Map domainAjaxCorsCookie(HttpServletRequest request, HttpServletResponse response) {
         WebApplicationContext webApplicationContext = RequestContextUtils.findWebApplicationContext(request);
