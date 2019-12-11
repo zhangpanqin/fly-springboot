@@ -1,11 +1,18 @@
 package com.fly.druid;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import com.fly.druid.druid.DepotDao;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class DruidDemoApplicationTests {
 
+    @Autowired
+    private DepotDao depotDao;
 
     /***
      * 测试 jdbc
@@ -23,10 +30,28 @@ public class DruidDemoApplicationTests {
 
         Class.forName(JDBC_Driver);//加载驱动
         Connection conn = DriverManager.getConnection(Url, Account, Password);//链接数据库
+    @Test
+    public void contextLoads() throws InterruptedException {
+        System.out.println(depotDao.allDepots(1));
+    }
 
-        if (!conn.isClosed()) {
-            System.out.print("数据库链接成功");
+        Thread.sleep(1000);
+        a = 0;
+        if (a <= 500) {
+            new Thread(() -> {
+                System.out.printf("", depotDao.allDepots(1));
+            }).start();
+            a++;
         }
     }
+
+    @Test
+    public void run33() {
+        Path path = Paths.get("E:\\");
+        File file = path.toFile();
+        String[] list = file.list();
+        System.out.println(Stream.of(list).collect(Collectors.joining()));
+    }
+
 
 }

@@ -1,1 +1,3 @@
-
+server:
+  servlet:
+    context-path: /servlet_context_path

@@ -22,6 +22,18 @@ public RetUtil<UserDemo> test2(@Valid UserDemo userDemo) {
 ![Spring Bean 加载](./picture/beanlife.png)
 
 ### SpringBoot 结合 IDEA 切换激活环境 
+![Spring Bean 加载](picture/spring-active.png)
+
+### SpringBoot 初始化 Servlet
+```java
+没有使用 spi 加载 ServletContainerInitializer 实现类
+TomcatStarter 主要逻辑，实现 ServletContextInitializer 可扩展
+```
+
+### SpringBoot 集成 Tomcat 
+```java
+ServletWebServerFactoryAutoConfiguration
+```
 ![配置环切换](./picture/Spring-active.png)
 
 ### 打包
