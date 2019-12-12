@@ -1,0 +1,26 @@
+# validation
+validation:
+  not-null: 1
+  length: 123
+# jail 配置
+jail:
+  map:
+    age: 18
+    name: 张
+  menus:
+    - name: Home
+      path: /
+      title: Home
+    - title: Login
+  name: 监狱
+  app:
+    name: 监狱2.0
+    url: http://localtion:7077
+    version: jail-2.0.1
+spring:
+  profiles:
+    include:
+      - dev
+
+
+
