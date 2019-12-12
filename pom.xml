@@ -18,7 +18,6 @@
     </parent>
 
     <modules>
-        <module>comfig-study</module>
         <module>confy-study</module>
         <module>druid-demo</module>
         <module>springboot-aop</module>

@@ -1,5 +1,6 @@
 package com.fly.config;
 
+import com.enable.EnableTest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
+@EnableTest
 public class ConfyStudyApplication {
 
     public static void main(String[] args) {

@@ -23,7 +23,6 @@ public class YourEnvironmentPostProcessor implements EnvironmentPostProcessor {
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         Resource path = new ClassPathResource("config.yml");
         PropertySource<ConfigTest> propertySource = loadYaml(path);
-        System.out.println(propertySource);
         environment.getPropertySources().addLast(propertySource);
     }
 
