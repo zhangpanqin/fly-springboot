@@ -62,7 +62,7 @@ public class ExceptionStudyApplicationTests {
         }
     }
 
-    
+
     @Test
     public void run44() {
         final MyList33 myList33 = new MyList33();
@@ -119,7 +119,7 @@ public class ExceptionStudyApplicationTests {
         final Type[] genericInterfaces = aClass.getGenericInterfaces();
         for (Type genericInterface : genericInterfaces) {
             System.out.println(genericInterface instanceof ParameterizedType);
-            ParameterizedType t= (ParameterizedType) genericInterface;
+            ParameterizedType t = (ParameterizedType) genericInterface;
             System.out.println(genericInterface.getTypeName());
         }
     }

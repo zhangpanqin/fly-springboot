@@ -28,9 +28,9 @@ public class AsyncController {
     @GetMapping(value = "/async")
     public RetUtil async(@RequestHeader String name, @CookieValue String age) throws InterruptedException {
         asyncService.asyncLog("11");
-        Map map =new HashMap();
-        map.put("name",name);
-        map.put("age",age);
+        Map map = new HashMap();
+        map.put("name", name);
+        map.put("age", age);
         return RetUtil.success(map);
     }
 
@@ -39,12 +39,14 @@ public class AsyncController {
         asyncService.syncLog();
         return RetUtil.success();
     }
+
     @GetMapping(value = "/sync-result")
     public RetUtil syncWithResult() throws InterruptedException, ExecutionException {
         final Future<String> stringFuture = asyncService.asyncWithResult();
         final String s = stringFuture.get();
         return RetUtil.success(s);
     }
+
     @GetMapping(value = "/sync-result/2")
     public RetUtil syncWithResult2() throws InterruptedException, ExecutionException {
         final long millis = Clock.systemUTC().millis();
@@ -53,9 +55,9 @@ public class AsyncController {
         final String s = stringFuture.get();
         final String s2 = stringFuture2.get();
         final long millis2 = Clock.systemUTC().millis();
-        Map ret= new HashMap<>(4);
-        ret.put("time",millis2-millis);
-        ret.put("str",s2.concat(s));
+        Map ret = new HashMap<>(4);
+        ret.put("time", millis2 - millis);
+        ret.put("str", s2.concat(s));
         return RetUtil.success(ret);
     }
 

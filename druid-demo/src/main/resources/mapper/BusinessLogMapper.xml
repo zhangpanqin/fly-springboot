@@ -14,6 +14,6 @@
         <result column="desciption" jdbcType="VARCHAR" property="desciption"/>
     </resultMap>
     <sql id="Base_Column_List">
-    id, user_name, user_id, ua, `operation`, request_param, ip, create_time, desciption
-  </sql>
+        id, user_name, user_id, ua, `operation`, request_param, ip, create_time, desciption
+    </sql>
 </mapper>

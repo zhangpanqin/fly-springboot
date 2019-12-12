@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringInterfaceApplication {
 
     public static void main(String[] args) {
-    SpringApplication.run(SpringInterfaceApplication.class, args);
+        SpringApplication.run(SpringInterfaceApplication.class, args);
     }
 
 }

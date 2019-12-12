@@ -17,6 +17,7 @@ public class SpringbootWebApplicationTests {
 
     @Autowired
     private DispatcherServlet dispatcherServlet;
+
     @Test
     public void contextLoads() {
         System.out.println(applicationContext);

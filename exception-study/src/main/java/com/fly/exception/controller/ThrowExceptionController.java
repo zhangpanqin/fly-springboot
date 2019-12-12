@@ -67,8 +67,9 @@ public class ThrowExceptionController {
             return ResponseEntity.status(HttpStatus.OK).body(com.alibaba.fastjson.JSON.parse(string));
         }
     }
+
     @GetMapping("/exceptions/throw")
-    public ResponseEntity<RetUtil> throwException(){
-        throw  new RuntimeException("测试逻辑，故意抛出异常");
+    public ResponseEntity<RetUtil> throwException() {
+        throw new RuntimeException("测试逻辑，故意抛出异常");
     }
 }

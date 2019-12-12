@@ -15,7 +15,7 @@ public class StartExceptionFailureAnalyzer extends AbstractFailureAnalyzer<Runti
     protected FailureAnalysis analyze(Throwable rootFailure, RuntimeException cause) {
         Throwable rootCause = cause.getCause();
         if (rootCause instanceof StartException) {
-            return new FailureAnalysis("测试启动异常","",rootCause);
+            return new FailureAnalysis("测试启动异常", "", rootCause);
         }
         return null;
     }

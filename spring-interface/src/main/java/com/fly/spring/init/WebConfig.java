@@ -17,12 +17,12 @@ public class WebConfig {
     }
 
     @Bean
-    public Fish fish(){
+    public Fish fish() {
         return new Fish();
     }
 
     @Bean
-    public MyBeanPostProcessor myBeanPostProcessor () {
+    public MyBeanPostProcessor myBeanPostProcessor() {
         return new MyBeanPostProcessor();
     }
 }

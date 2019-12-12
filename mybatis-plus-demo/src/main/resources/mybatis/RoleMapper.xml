@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.RoleMapper">
     <resultMap type="mybatis.Role" id="roleMap">
-        <id column="id" property="id" javaType="long" jdbcType="BIGINT" />
+        <id column="id" property="id" javaType="long" jdbcType="BIGINT"/>
         <result column="role_name" property="roleName" javaType="string"
-                jdbcType="VARCHAR" />
+                jdbcType="VARCHAR"/>
         <result column="note" property="note"
-                typeHandler="mybatis.MyStringHandler" />
+                typeHandler="mybatis.MyStringHandler"/>
     </resultMap>
     <select id="getRole" parameterType="long" resultMap="roleMap">
         select

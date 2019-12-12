@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
  * @description
  */
 @Component
-public class MyFailureAnalyzerImpl{
+public class MyFailureAnalyzerImpl {
 
-//    @Bean
+    //    @Bean
     public String startThrowException() {
         throw new StartException("模拟启动异常");
     }

@@ -35,19 +35,20 @@ public class GlobalExceptionHandler {
     public ResponseEntity<RetUtil<List<ErrorInfo>>> handleConstraintViolationException(ConstraintViolationException e) {
         StringBuilder message = new StringBuilder();
         Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-        List<ErrorInfo> ret=new ArrayList<>(violations.size());
+        List<ErrorInfo> ret = new ArrayList<>(violations.size());
         for (ConstraintViolation<?> violation : violations) {
             Path path = violation.getPropertyPath();
             ret.add(ErrorInfo.builder().name(path.toString()).message(violation.getMessage()).build());
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(RetUtil.success(ret));
     }
+
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public RetUtil<List<ErrorInfo>> validExceptionHandler(BindException e) {
         StringBuilder message = new StringBuilder();
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
-        List<ErrorInfo> ret=new ArrayList<>(fieldErrors.size());
+        List<ErrorInfo> ret = new ArrayList<>(fieldErrors.size());
         for (FieldError error : fieldErrors) {
             ret.add(ErrorInfo.builder().name(error.getField()).message(error.getDefaultMessage()).build());
         }

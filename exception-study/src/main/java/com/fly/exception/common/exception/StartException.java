@@ -7,7 +7,7 @@ package com.fly.exception.common.exception;
  */
 public class StartException extends RuntimeException {
 
-    public StartException (String message){
+    public StartException(String message) {
         super(message);
     }
 }

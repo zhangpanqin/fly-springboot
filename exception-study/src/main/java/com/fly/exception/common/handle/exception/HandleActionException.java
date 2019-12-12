@@ -19,7 +19,7 @@ import org.springframework.web.util.WebUtils;
 @Component
 @RestControllerAdvice
 public class HandleActionException extends ResponseEntityExceptionHandler {
-    public HandleActionException(){
+    public HandleActionException() {
 
     }
 
@@ -33,7 +33,7 @@ public class HandleActionException extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(value = {RuntimeException.class})
-    public ResponseEntity<RetUtil> handleRunTimeException(){
+    public ResponseEntity<RetUtil> handleRunTimeException() {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(RetUtil.build().code(5000));
     }
 }

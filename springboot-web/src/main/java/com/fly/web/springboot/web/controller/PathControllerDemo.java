@@ -19,13 +19,13 @@ public class PathControllerDemo {
     public Map getPath(HttpServletRequest request) {
         final StringBuffer requestURL = request.getRequestURL();
         final HashMap ret = new HashMap<>(16);
-        ret.put("PathInfo",request.getPathInfo());
-        ret.put("contextPath",request.getContextPath());
-        ret.put("servletPath",request.getServletPath());
-        ret.put("requestURL",requestURL.toString());
+        ret.put("PathInfo", request.getPathInfo());
+        ret.put("contextPath", request.getContextPath());
+        ret.put("servletPath", request.getServletPath());
+        ret.put("requestURL", requestURL.toString());
         final String queryString = request.getQueryString();
-        ret.put("queryString",queryString);
-        ret.put("requestUri",request.getRequestURI());
+        ret.put("queryString", queryString);
+        ret.put("requestUri", request.getRequestURI());
         return ret;
     }
 }

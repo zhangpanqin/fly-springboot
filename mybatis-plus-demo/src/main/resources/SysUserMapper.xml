@@ -23,8 +23,8 @@
 
 
     <update id="updateSysUsers">
-    update sys_user set sys_name= '测试11' where sys_id=1;
-    update sys_user set sys_name= '测试22' where sys_id=2;
-  </update>
+        update sys_user set sys_name= '测试11' where sys_id=1;
+        update sys_user set sys_name= '测试22' where sys_id=2;
+    </update>
 
 </mapper>

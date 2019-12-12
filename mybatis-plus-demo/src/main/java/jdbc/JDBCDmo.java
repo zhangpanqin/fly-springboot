@@ -13,13 +13,13 @@ public class JDBCDmo {
 
         String url = "jdbc:mysql://localhost:3306/study_mysql";
         String username = "root";
-        String password="123456";
+        String password = "123456";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         PreparedStatement ps = connection.prepareStatement("SELECT * FROM role LIMIT 1");
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            System.out.println("Id = " + rs.getString("id") + "  note = " + rs.getString("note")+"  role_name="+rs.getString("role_name"));
+            System.out.println("Id = " + rs.getString("id") + "  note = " + rs.getString("note") + "  role_name=" + rs.getString("role_name"));
         }
         rs.close();
         ps.close();
