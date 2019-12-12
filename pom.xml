@@ -18,6 +18,7 @@
     </parent>
 
     <modules>
+        <module>confy-study</module>
         <module>druid-demo</module>
         <module>springboot-aop</module>
         <module>mybatis-plus-demo</module>
