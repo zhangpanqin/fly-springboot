@@ -4,16 +4,9 @@ import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEven
 import org.springframework.context.ApplicationListener;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
-/**
- * @author 张攀钦
- * @date 2019-12-12-19:04
- * @description
- */
-@Component
 public class SpringBootLog4j2Configuration implements ApplicationListener<ApplicationEnvironmentPreparedEvent>, Ordered {
 
 
