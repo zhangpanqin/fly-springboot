@@ -20,7 +20,7 @@
             <PatternLayout pattern="${CONSOLE_LOG_PATTERN}"/>
         </Console>
 
-        <RollingFile name="RollingInfoFile" fileName="log/${sys:fileName}-info.log"
+        <RollingFile name="RollingInfoFile" fileName="log/${loggingFile:name}-info.log"
                      filePattern="logs/info/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
             <!--            <LevelRangeFilter minLevel="INFO" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/>-->
             <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
@@ -29,7 +29,7 @@
         </RollingFile>
 
         <!-- error 日志 -->
-        <RollingFile name="RollingErrorFile" fileName="log/${env:appName}-error.log"
+        <RollingFile name="RollingErrorFile" fileName="log/${appName}-error.log"
                      filePattern="logs/error/$${date:yyyy-MM}/error-%d{MM-dd-yyyy}-%i.log.gz">
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="${FILE_LOG_PATTERN}"/>

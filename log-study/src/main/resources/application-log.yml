@@ -3,3 +3,5 @@ logging:
   level:
     root: info
     com.fly.log: warn
+  file:
+    name: fly-me
