@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!--日志文件的名字，扩展名为 .log-->
-    <springProperty scope="context" name="appName" source="logging.log-name"/>
+    <springProperty scope="context" name="appName" source="logging.log-name" defaultValue="spring-boot"/>
     <!--日志文件的路径-->
-    <springProperty scope="context" name="logPath" source="logging.log-path"/>
+    <springProperty scope="context" name="logPath" source="logging.log-path" defaultValue="logs"/>
 
     <property name="defaultLogPath" value="logs"/>
     <property name="defaultAppName" value="spring-boot"/>
