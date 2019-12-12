@@ -33,6 +33,7 @@
         <module>async-study</module>
         <module>websocket-study</module>
         <module>es-study</module>
+        <module>log-study</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
