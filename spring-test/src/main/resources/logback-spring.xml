@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!--日志文件的名字，扩展名为 .log-->
+    <springProperty scope="context" name="appName" source="logging.log-name" defaultValue="spring-boot"/>
+    <!--日志文件的路径-->
+    <springProperty scope="context" name="logPath" source="logging.log-path" defaultValue="logs"/>
+
+    <property name="defaultLogPath" value="logs"/>
+    <property name="defaultAppName" value="spring-boot"/>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <!--<include resource="org/springframework/boot/logging/logback/console-appender.xml" />-->
+    <!--生成日志-->
+    <appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath:-${defaultLogPath}}/${appName:-${defaultAppName}}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logPath:-${defaultLogPath}}/${appName:-${defaultAppName}}.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
+            <maxHistory>${LOG_FILE_MAX_HISTORY:-20}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- druid sql 日志追踪器   -->
+    <appender name="druidSqlRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath:-${defaultLogPath}}/druid/druid-sql.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logPath:-${defaultLogPath}}/druid/druid-sql.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
+            <maxHistory>${LOG_FILE_MAX_HISTORY:-20}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- druid 错误 日志追踪器   -->
+    <appender name="druidErrorRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath:-${defaultLogPath}}/druid/druid-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logPath:-${defaultLogPath}}/druid-error.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
+            <maxHistory>${LOG_FILE_MAX_HISTORY:-20}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="druid.sql.Statement" level="warn" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="druidSqlRollingFile"/>
+    </logger>
+
+    <logger name="druid.sql.ResultSet" level="warn" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="druidErrorRollingFile"/>
+    </logger>
+
+    <logger name="druid.sql.Connection" level="warn" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="druidErrorRollingFile"/>
+    </logger>
+
+    <logger name="com.fly.druid" additivity="false" level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="File"/>
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="File"/>
+    </root>
+</configuration>

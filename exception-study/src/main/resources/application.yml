@@ -1,0 +1,8 @@
+logging:
+  config: classpath:logback-spring.xml
+  #  \u65E5\u5FD7\u683C\u5F0F${log-path}/${log-name}.log
+  log-path: logs
+  log-name: log-study
+  level:
+    root: info
+    com.fly.druid: warn
