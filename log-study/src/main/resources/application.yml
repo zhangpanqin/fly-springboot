@@ -2,3 +2,5 @@ spring:
   profiles:
     include:
       - log
+server:
+  port: 8082

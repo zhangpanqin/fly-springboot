@@ -2,13 +2,14 @@ package com.fly.test;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 /**
  * @author 张攀钦
  * @date 2019-12-12-15:54
  * @description
  */
-//@Component
+@Component
 @Slf4j
 public class LogTest3 {
     @Scheduled(fixedDelayString = "4000")

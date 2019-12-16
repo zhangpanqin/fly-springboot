@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Properties>
+    <!-- define the log pattern as a property so that it can be overridden -->
+    <Property name="test_include">测试</Property>
+</Properties>

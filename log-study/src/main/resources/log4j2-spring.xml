@@ -5,7 +5,7 @@
         <Property name="LOG_LEVEL_PATTERN">%-5p</Property>
         <Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd HH:mm:ss.SSS</Property>
         <Property name="CONSOLE_LOG_PATTERN">
-            测试属性： ${sys:LOG_FILE} %clr{%d{${LOG_DATEFORMAT_PATTERN}}}{faint} %clr{${LOG_LEVEL_PATTERN}}
+            测试属性：${ceshi} %clr{%d{${LOG_DATEFORMAT_PATTERN}}}{faint} %clr{${LOG_LEVEL_PATTERN}}
             %clr{%pid}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{39}}{cyan} %clr{:}{faint}
             %m%n${LOG_EXCEPTION_CONVERSION_WORD}
         </Property>
@@ -47,12 +47,16 @@
             <PatternLayout pattern="${FILE_LOG_PATTERN}"/>
             <SizeBasedTriggeringPolicy size="5MB"/>
         </RollingRandomAccessFile>
-
+        <!-- 这个就是自定义的Appender -->
+        <MyFileAppender name="File" fileName="log.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p] {%F:%L} - %m%n"/>
+        </MyFileAppender>
     </Appenders>
     <Loggers>
-        <AsyncLogger name="com.fly.log" level="info" additivity="false">
+        <AsyncLogger name="com.fly.log" level="info">
             <AppenderRef ref="RollingInfoFile"/>
             <AppenderRef ref="RollingErrorFile"/>
+            <AppenderRef ref="File"/>
         </AsyncLogger>
 
         <Root level="INFO">
