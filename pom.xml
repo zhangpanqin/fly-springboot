@@ -18,6 +18,7 @@
     </parent>
 
     <modules>
+        <module>webclient-study</module>
         <module>confy-study</module>
         <module>log-study</module>
         <module>druid-demo</module>
