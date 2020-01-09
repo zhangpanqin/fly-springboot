@@ -1,1 +1,3 @@
-
+security:
+  session:
+    timeout: 3600
