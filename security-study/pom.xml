@@ -7,17 +7,29 @@
         <artifactId>springboot-study</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.fly.async</groupId>
-    <artifactId>async-study</artifactId>
+    <groupId>com.fly.security</groupId>
+    <artifactId>security-study</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>async-study</name>
-    <description>学习异步编程</description>
+    <name>security-study</name>
+    <description>security 研究</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.security</groupId>-->
+        <!--            <artifactId>spring-security-oauth2-client</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.security</groupId>-->
+        <!--            <artifactId>spring-security-oauth2-jose</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -45,8 +57,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

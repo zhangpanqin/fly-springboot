@@ -2,7 +2,7 @@ logging:
   config: classpath:log4j2-spring.xml
   level:
     root: info
-    com.fly.log: warn
+    com.fly.log: info
     com.fly.test: info
   file:
     name: fly-me
