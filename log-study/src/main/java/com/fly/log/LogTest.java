@@ -18,6 +18,6 @@ public class LogTest {
         MDC.put("userid", "12345");
         log.info("info 日志级别");
         log.error("error 日志级别");
-        log.warn("warn 日志级别",new RuntimeException("测试异常"));
+        log.warn("warn 日志级别", new RuntimeException("测试异常"));
     }
 }

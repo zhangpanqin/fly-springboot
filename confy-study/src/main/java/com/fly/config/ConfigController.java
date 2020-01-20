@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class ConfigController {
     @Autowired
     private EnableConfiguration enableConfiguration;
+
     @GetMapping(value = "/config")
-    public EnableConfiguration getEnableConfiguration(){
+    public EnableConfiguration getEnableConfiguration() {
         return enableConfiguration;
     }
 }

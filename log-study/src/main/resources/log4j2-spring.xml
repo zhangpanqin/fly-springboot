@@ -10,7 +10,8 @@
             %m%n${LOG_EXCEPTION_CONVERSION_WORD}
         </Property>
         <Property name="FILE_LOG_PATTERN">
-            %d{${LOG_DATEFORMAT_PATTERN}}{GMT+8} ${LOG_LEVEL_PATTERN} %pid --- [%-20.20t] %-40.40c : %m%n${LOG_EXCEPTION_CONVERSION_WORD}
+            %d{${LOG_DATEFORMAT_PATTERN}}{GMT+8} ${LOG_LEVEL_PATTERN} %pid --- [%-20.20t] %-40.40c :
+            %m%n${LOG_EXCEPTION_CONVERSION_WORD}
         </Property>
     </Properties>
     <Appenders>
@@ -33,7 +34,7 @@
             </PatternLayout>
 
             <Policies>
-                <OnStartupTriggeringPolicy />
+                <OnStartupTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="100 MB"/>
             </Policies>
 
