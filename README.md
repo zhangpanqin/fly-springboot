@@ -1,5 +1,11 @@
 Spring 记录笔记
 
+### 排除注解扫描的类
+```java
+// 排除自定义注解标记的类
+@ComponentScan(excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Avoid.class)})
+```
+
 ### 接口返回改变状态码
 
 ```java
