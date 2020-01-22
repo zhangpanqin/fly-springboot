@@ -18,6 +18,7 @@
     </parent>
 
     <modules>
+        <module>application-context-study</module>
         <module>test-app</module>
         <module>security-study</module>
         <module>webclient-study</module>
