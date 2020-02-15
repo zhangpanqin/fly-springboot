@@ -1,0 +1,5 @@
+server:
+  port: 10225
+logging:
+  level:
+    root: warn

@@ -13,10 +13,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class InitMain {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(WebConfig.class);
-        User user = context.getBean(User.class);
-        Bird bird = context.getBean(Bird.class);
-        ImpDemo1 impDemo1 = context.getBean(ImpDemo1.class);
-        log.info(impDemo1.getClass().getName() + "================");
         // 关闭 IOC 容器
         context.close();
     }
