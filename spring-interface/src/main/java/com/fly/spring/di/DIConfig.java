@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Import;
  * @description
  */
 @Configuration
-//@Import(ServiceB.class)
+@Import(ServiceB.class)
 public class DIConfig {
 }

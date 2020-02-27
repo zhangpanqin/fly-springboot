@@ -10,9 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ServiceA {
+    @Autowired
     private ServiceB serviceB;
 
-    @Autowired
-    public ServiceA(ServiceB serviceB) {
-    }
 }
