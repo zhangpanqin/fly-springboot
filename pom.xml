@@ -13,11 +13,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.1.RELEASE</version>
+        <version>2.2.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <modules>
+        <module>package-study</module>
+        <module>lucence-study</module>
+        <module>http-cache-study</module>
         <module>rocketmq-study</module>
         <module>application-context-study</module>
         <module>test-app</module>

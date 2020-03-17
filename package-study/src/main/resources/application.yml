@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: @profileActive@
+test:
+  main: 'classpath下application.yml'
+  dev: 'classpath下application.yml'
+  fileMain: 'classpath下application.yml'
+  fileDev: 'classpath下application.yml'
+server:
+  port: 9911
+logging:
+  level:
+   root: info
+  config: classpath:logback-spring.xml
+  log-name: package-study
+  log-path: logs

@@ -47,7 +47,7 @@ public class ShipControllerTest {
     public void getName() throws Exception {
         PowerMockito.mockStatic(HttpUtil.class);
         Mockito.when(HttpUtil.get(ArgumentMatchers.anyString())).thenReturn("{containerId:22,shipId:10003,tier:22,bayno:3,row:22,company:22}");
-        mvc.perform(MockMvcRequestBuilders.get("/ships"))
+        mvc.perform(MockMvcRequestBuilders.get("/ships").cookie())
                 .andDo(data -> System.out.println(data.getResponse().getContentAsString()))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }

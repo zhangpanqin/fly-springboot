@@ -1,0 +1,5 @@
+test:
+  main: 'classpath 下 application-dev.yml'
+  dev: 'classpath 下 application-dev.yml'
+  fileMain: 'classpath 下 application-dev.yml'
+#  fileDev: 'classpath 下 application-dev.yml'
