@@ -10,9 +10,6 @@
     <typeAliases>
         <typeAlias alias="role" type="mybatis.Role"/>
     </typeAliases>
-    <typeHandlers>
-        <typeHandler jdbcType="VARCHAR" javaType="string" handler="mybatis.MyStringHandler"/>
-    </typeHandlers>
     <!-- 定义数据库的信息，默认使用development数据库构建环境 -->
     <environments default="development">
         <environment id="development">

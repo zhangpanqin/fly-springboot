@@ -2,14 +2,16 @@ package com.fly.aop.understan;
 
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.framework.ProxyFactory;
+import org.springframework.aop.framework.ProxyFactoryBean;
 
 import java.lang.reflect.Method;
 
 public class Main {
 
     public static void main(String[] args) {
+        final ProxyFactoryBean proxyFactoryBean = new ProxyFactoryBean();
+        proxyFactoryBean.setProxyTargetClass(true);
         ProxyFactory factory = new ProxyFactory(new SimplePojo());
-        factory.addInterface(Pojo.class);
         factory.addAdvice(new RetryAdvice());
 
         Pojo pojo = (Pojo) factory.getProxy();

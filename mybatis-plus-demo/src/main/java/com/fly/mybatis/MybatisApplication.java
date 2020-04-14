@@ -1,5 +1,6 @@
 package com.fly.mybatis;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Mybatis plus 学习
  */
 @SpringBootApplication
+@MapperScan("com.fly.mybatis.mapper")
 public class MybatisApplication {
 
     public static void main(String[] args) {

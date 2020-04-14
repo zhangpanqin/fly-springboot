@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    # \u65F6\u533A\u914D\u7F6E serverTimezone=GMT%2B8 \u4E1C\u516B\u533A
+    url: jdbc:mysql://localhost:3306/flyway_test?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&waitTimeout=10
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    url: jdbc:mysql://localhost:3306/flyway_test?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&waitTimeout=10
+    user: root
+    password: 123456

@@ -18,6 +18,9 @@
     </parent>
 
     <modules>
+        <module>study-flyway</module>
+        <module>mapstruct-study</module>
+        <module>fly-starter</module>
         <module>package-study</module>
         <module>lucence-study</module>
         <module>http-cache-study</module>

@@ -7,8 +7,6 @@
         <id column="id" property="id" javaType="long" jdbcType="BIGINT"/>
         <result column="role_name" property="roleName" javaType="string"
                 jdbcType="VARCHAR"/>
-        <result column="note" property="note"
-                typeHandler="mybatis.MyStringHandler"/>
     </resultMap>
     <select id="getRole" parameterType="long" resultMap="roleMap">
         select
@@ -18,7 +16,7 @@
         select
         id,role_name,note from role where role_name like CONCAT('%',#{roleName
         javaType=string,
-        jdbcType=VARCHAR,typeHandler=mybatis.MyStringHandler},'%')
+        jdbcType=VARCHAR},'%')
     </select>
     <insert id="insertRole">
         insert into
