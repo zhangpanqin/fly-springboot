@@ -18,6 +18,7 @@
     </parent>
 
     <modules>
+        <module>mqtt-demo</module>
         <module>study-flyway</module>
         <module>mapstruct-study</module>
         <module>fly-starter</module>
