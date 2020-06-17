@@ -14,11 +14,11 @@ class RedisRedissonStudyApplicationTests {
     private RedissonClient redissonClient;
 
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         Config config = new Config();
         config.useSentinelServers().addSentinelAddress("redis://localhost:26379", "redis://localhost:26380", "redis://localhost:26381").setMasterName("mymaster").setLoadBalancer(new RandomLoadBalancer());
         config.setCodec(new org.redisson.client.codec.StringCodec());
-         redissonClient = Redisson.create(config);
+        redissonClient = Redisson.create(config);
     }
 
 
@@ -35,7 +35,7 @@ class RedisRedissonStudyApplicationTests {
         getQueue(redissonClient);
     }
 
-    public static void getList(RedissonClient redissonClient){
+    public static void getList(RedissonClient redissonClient) {
         RList<String> list1 = redissonClient.getList("list1");
         list1.add("1");
         list1.add("2");
@@ -43,19 +43,19 @@ class RedisRedissonStudyApplicationTests {
 
     }
 
-    public static void getMap(RedissonClient redissonClient){
+    public static void getMap(RedissonClient redissonClient) {
         RMap<String, String> list1 = redissonClient.getMap("map1");
-        list1.put("ceshi","ceshi");
+        list1.put("ceshi", "ceshi");
         System.out.println(list1);
 
     }
 
-    public static void getRSortedSet(RedissonClient redissonClient){
+    public static void getRSortedSet(RedissonClient redissonClient) {
         RScoredSortedSet<Object> sortset = redissonClient.getScoredSortedSet("zset22");
-        sortset.add(100,"asd");
+        sortset.add(100, "asd");
     }
 
-    public static void getSet(RedissonClient redissonClient){
+    public static void getSet(RedissonClient redissonClient) {
         RSet<String> sortset = redissonClient.getSet("set22");
         sortset.add("asd");
         sortset.add("asd");
@@ -64,7 +64,7 @@ class RedisRedissonStudyApplicationTests {
         sortset.add("asd3");
     }
 
-    public static void getQueue(RedissonClient redissonClient){
+    public static void getQueue(RedissonClient redissonClient) {
         RQueue<String> sortset = redissonClient.getQueue("queue22");
         sortset.add("asd");
         sortset.add("asd");
@@ -72,7 +72,8 @@ class RedisRedissonStudyApplicationTests {
         sortset.add("asd2");
         sortset.add("asd3");
     }
-    public static void getQueue2(RedissonClient redissonClient){
+
+    public static void getQueue2(RedissonClient redissonClient) {
         RQueue<String> sortset = redissonClient.getQueue("queue22");
     }
 }

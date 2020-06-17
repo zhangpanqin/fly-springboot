@@ -19,7 +19,7 @@ public class OrderedProducer {
         producer.setNamesrvAddr("localhost:9876");
         producer.start();
         for (int i = 0; i < 3; i++) {
-            String orderId = i+"" ;
+            String orderId = i + "";
             for (int j = 0; j < 5; j++) {
                 Order build = Order.builder().id(orderId).message("步骤:-" + j).build();
                 //Create a message instance, specifying topic, tag and message body.

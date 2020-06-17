@@ -18,7 +18,7 @@ public class TestController {
     @GetMapping(value = "/test")
     public Config getBody() {
         Config config2 = new Config();
-        BeanUtils.copyProperties(config,config2);
+        BeanUtils.copyProperties(config, config2);
         return config2;
     }
 }

@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2016-2019 Nikita Koksharov
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -209,7 +209,7 @@ public class LiveObjectServiceExamples {
             return id;
         }
     }
-    
+
     @REntity
     public static class Order implements Serializable {
 
@@ -301,7 +301,7 @@ public class LiveObjectServiceExamples {
         Customer customer = new Customer("12");
         // customer object is becoming "live" object
         customer = liveObjectService.merge(customer);
-        
+
         customer.setName("Alexander Pushkin");
         customer.setPhone("+7193127489123");
         customer.setAddress("Moscow, Tverskaya str");
@@ -309,7 +309,7 @@ public class LiveObjectServiceExamples {
         Product product = new Product(1L, "FoodBox");
         // product object is becoming "live" object
         product = liveObjectService.merge(product);
-        
+
         product.getItemName2Amount().put("apple", 1);
         product.getItemName2Amount().put("banana", 12);
         product.setPrice(BigDecimal.valueOf(10));
@@ -318,7 +318,7 @@ public class LiveObjectServiceExamples {
         Order order = new Order(customer);
         // order object is becoming "live" object
         order = liveObjectService.merge(order);
-        
+
         order.setDate(new Date());
         order.setShipAddress("Moscow, Gasheka str");
         order.setShipName("James Bond");
@@ -337,7 +337,7 @@ public class LiveObjectServiceExamples {
         Customer attachedCustomer = liveObjectService.get(Customer.class, "12");
         for (Order attachedOrder : attachedCustomer.getOrders()) {
             for (OrderDetail orderDetail : attachedOrder.getOrderDetails()) {
-                 // ...
+                // ...
 
             }
 

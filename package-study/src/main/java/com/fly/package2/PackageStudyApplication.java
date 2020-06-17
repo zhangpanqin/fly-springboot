@@ -16,7 +16,7 @@ public class PackageStudyApplication {
 
         System.out.println(System.getProperty("user.dir"));
 
-        System.out.println("app.home 的地址为:"+System.getProperty("app.home"));
+        System.out.println("app.home 的地址为:" + System.getProperty("app.home"));
 
     }
 

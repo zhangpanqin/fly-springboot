@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Configuration;
 public class TestNotScan {
 
     @Bean
-    public String testString(){
+    public String testString() {
         System.out.println("TestNotScan 执行了");
-            return "测试";
+        return "测试";
     }
 }

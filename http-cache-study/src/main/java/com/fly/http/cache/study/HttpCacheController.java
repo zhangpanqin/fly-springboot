@@ -38,17 +38,17 @@ public class HttpCacheController {
         }).findFirst();
         final Cookie cookie = cookie2.orElse(new Cookie("cookie2", "默认值"));
         System.out.println(cookie.getValue());
-        response.setHeader("Content-Type","image/png");
-        response.setHeader("Cache-Control","max-age=10");
+        response.setHeader("Content-Type", "image/png");
+        response.setHeader("Cache-Control", "max-age=10");
         ServletOutputStream outputStream = response.getOutputStream();
         ClassPathResource classPathResource = new ClassPathResource("static/a.png");
         InputStream inputStream = classPathResource.getInputStream();
-        IOUtils.copy(inputStream,outputStream);
+        IOUtils.copy(inputStream, outputStream);
         inputStream.close();
     }
 
     @GetMapping("/ip")
-    public IpData getIPData(HttpServletRequest request){
+    public IpData getIPData(HttpServletRequest request) {
         final String header = request.getHeader("X-Forwarded-For");
         final String realIp = request.getHeader("X-REAL-IP");
         final IpData ipData = new IpData();
@@ -56,13 +56,14 @@ public class HttpCacheController {
         ipData.setXRealIp(realIp);
         return ipData;
     }
+
     @GetMapping("/proxy")
-    public ResponseEntity<String> proxy(HttpServletRequest request){
+    public ResponseEntity<String> proxy(HttpServletRequest request) {
         System.out.println(request.getHeader("Host"));
         final String collect = Stream.generate(() -> {
             return "a";
-        }).limit(1024*1024*10).collect(Collectors.joining());
+        }).limit(1024 * 1024 * 10).collect(Collectors.joining());
         final String collect1 = Stream.generate(() -> "b").limit(1024 * 4).collect(Collectors.joining());
-        return ResponseEntity.status(200).header("a","collect1").body("collect");
+        return ResponseEntity.status(200).header("a", "collect1").body("collect");
     }
 }

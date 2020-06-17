@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class IntegerCodeToEnumConverterFactory implements ConverterFactory<Integer, BaseEnum> {
-    private static final Map<Class, Converter> CONVERTERS =new HashMap<>();
+    private static final Map<Class, Converter> CONVERTERS = new HashMap<>();
 
     /**
      * 获取一个从 Integer 转化为 T 的转换器，T 是一个泛型，有多个实现

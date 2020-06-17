@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class MessageSendController {
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
+
     @GetMapping(value = "/test")
-    public String sendMessage(@RequestParam String message){
-        rocketMQTemplate.syncSend("order-test",message);
+    public String sendMessage(@RequestParam String message) {
+        rocketMQTemplate.syncSend("order-test", message);
         return "success";
     }
 }

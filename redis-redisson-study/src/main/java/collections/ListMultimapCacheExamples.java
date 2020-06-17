@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2016-2019 Nikita Koksharov
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -31,7 +31,7 @@ public class ListMultimapCacheExamples {
     public static void main(String[] args) {
         // connects to 127.0.0.1:6379 by default
         RedissonClient redisson = Redisson.create();
-        
+
         RListMultimapCache<String, Integer> multimap = redisson.getListMultimapCache("myMultimap");
         multimap.put("1", 1);
         multimap.put("1", 2);
@@ -39,29 +39,29 @@ public class ListMultimapCacheExamples {
         multimap.put("2", 5);
         multimap.put("2", 6);
         multimap.put("4", 7);
-        
+
         // set ttl = 10 seconds 
         multimap.expireKey("1", 10, TimeUnit.SECONDS);
-        
+
         RList<Integer> values1 = multimap.get("1");
         RList<Integer> values2 = multimap.get("2");
-        
+
         boolean hasEntry = multimap.containsEntry("1", 3);
         Collection<Entry<String, Integer>> entries = multimap.entries();
         Collection<Integer> values = multimap.values();
-        
+
         boolean isRemoved = multimap.remove("1", 3);
         List<Integer> removedValues = multimap.removeAll("1");
-        
+
         Collection<? extends Integer> newValues = Arrays.asList(5, 6, 7, 8, 9);
         boolean isNewKey = multimap.putAll("5", newValues);
-        
+
         List<Integer> oldValues = multimap.replaceValues("2", newValues);
         List<Integer> allValues = multimap.getAll("2");
 
         long keysRemoved = multimap.fastRemove("2", "32");
-        
+
         redisson.shutdown();
     }
-    
+
 }

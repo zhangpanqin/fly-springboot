@@ -17,6 +17,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public String log() {
         return "测试";
     }
+
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverterFactory(new IntegerCodeToEnumConverterFactory());

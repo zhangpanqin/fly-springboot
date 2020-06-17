@@ -24,7 +24,7 @@ public class BirdConfig implements InitializingBean, DisposableBean, BeanPostPro
         return new Bird();
     }
 
-    public BirdConfig(){
+    public BirdConfig() {
         System.out.println("BirdConfig 初始化 构造函数");
     }
 

@@ -18,28 +18,28 @@ import java.util.stream.Collectors;
  * @description
  */
 public class FilterMessageConsumer {
-        public static void main(String[] args) throws MQClientException {
-            DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group45");
+    public static void main(String[] args) throws MQClientException {
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group45");
 
-            consumer.setNamesrvAddr("localhost:9876");
-            consumer.subscribe("TopicTest", MessageSelector.bySql("a >=  5"));
+        consumer.setNamesrvAddr("localhost:9876");
+        consumer.subscribe("TopicTest", MessageSelector.bySql("a >=  5"));
 
-            consumer.registerMessageListener(new MessageListenerConcurrently() {
-                @Override
-                public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
-                    List<String> collect = msgs.stream().map(item -> {
-                        try {
-                            return new String(item.getBody(), "UTF-8");
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                        }
-                        return null;
-                    }).collect(Collectors.toList());
-                    System.out.println(collect);
+        consumer.registerMessageListener(new MessageListenerConcurrently() {
+            @Override
+            public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
+                List<String> collect = msgs.stream().map(item -> {
+                    try {
+                        return new String(item.getBody(), "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }).collect(Collectors.toList());
+                System.out.println(collect);
 
-                    return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
-                }
-            });
-            consumer.start();
-        }
+                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+            }
+        });
+        consumer.start();
+    }
 }

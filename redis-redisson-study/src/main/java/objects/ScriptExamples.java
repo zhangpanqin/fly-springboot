@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2016-2019 Nikita Koksharov
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -36,11 +36,10 @@ public class ScriptExamples {
 
         // execute script in read only mode
         String result = script.eval(RScript.Mode.READ_ONLY,
-                               "return redis.call('get', 'foo')", 
-                               RScript.ReturnType.VALUE);
+                "return redis.call('get', 'foo')",
+                RScript.ReturnType.VALUE);
 
 
-        
         // execute the same script stored in Redis lua script cache
 
         // load lua script into Redis cache to all redis master instances
@@ -48,10 +47,10 @@ public class ScriptExamples {
 
         // call lua script by sha digest
         result = redisson.getScript().evalSha(RScript.Mode.READ_ONLY,
-                                    sha1, RScript.ReturnType.VALUE, Collections.emptyList());
-        
-        
+                sha1, RScript.ReturnType.VALUE, Collections.emptyList());
+
+
         redisson.shutdown();
     }
-    
+
 }

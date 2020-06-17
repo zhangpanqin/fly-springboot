@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StringToEnumConverter<T extends BaseEnum> implements Converter<String, T> {
-    private Map<String, T> enumMap =new HashMap<>();
+    private Map<String, T> enumMap = new HashMap<>();
 
     public StringToEnumConverter(Class<T> enumType) {
         T[] enums = enumType.getEnumConstants();

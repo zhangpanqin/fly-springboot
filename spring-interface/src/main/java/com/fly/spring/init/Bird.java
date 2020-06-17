@@ -6,7 +6,7 @@ package com.fly.spring.init;
  * 小鸟类
  */
 
-public class Bird  {
+public class Bird {
     public Bird() {
         System.out.println("Bird 构造函数");
     }

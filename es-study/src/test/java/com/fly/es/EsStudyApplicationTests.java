@@ -27,19 +27,20 @@ public class EsStudyApplicationTests {
 
 
     @Test
-    public void test3(){
-        MatchPhraseQueryBuilder matchPhraseQueryBuilder = new MatchPhraseQueryBuilder("name","张攀钦");
+    public void test3() {
+        MatchPhraseQueryBuilder matchPhraseQueryBuilder = new MatchPhraseQueryBuilder("name", "张攀钦");
         Iterable<EsProductDO> search = productRepository.search(matchPhraseQueryBuilder);
-        search.forEach(item->System.out.println(item));
-    }
-    @Test
-    public void run4(){
-
+        search.forEach(item -> System.out.println(item));
     }
 
+    @Test
+    public void run4() {
+
+    }
+
 
     @Test
-    public void test2(){
+    public void test2() {
         System.out.println(productRepository.findById("20"));
     }
 

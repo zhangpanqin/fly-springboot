@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2016-2019 Nikita Koksharov
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -34,30 +34,30 @@ public class QueueExamples {
         queue.add("2");
         queue.add("3");
         queue.add("4");
-        
+
         queue.contains("1");
         queue.peek();
         queue.poll();
         queue.element();
-        
+
         for (String string : queue) {
             // iteration through bulk loaded values
         }
-        
+
         boolean removedValue = queue.remove("1");
         queue.removeAll(Arrays.asList("1", "2", "3"));
         queue.containsAll(Arrays.asList("4", "1", "0"));
-        
+
         List<String> secondList = new ArrayList<>();
         secondList.add("4");
         secondList.add("5");
         queue.addAll(secondList);
 
         RQueue<String> secondQueue = redisson.getQueue("mySecondQueue");
-        
+
         queue.pollLastAndOfferFirstTo(secondQueue.getName());
-        
+
         redisson.shutdown();
     }
-    
+
 }

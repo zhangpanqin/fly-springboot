@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2016-2019 Nikita Koksharov
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -37,21 +37,21 @@ public class MapReduceExample {
                 collector.emit(word, 1);
             }
         }
-        
+
     }
-    
+
     public static class WordReducer implements RReducer<String, Integer> {
 
         @Override
         public Integer reduce(String reducedKey, Iterator<Integer> iter) {
             int sum = 0;
             while (iter.hasNext()) {
-               Integer i = (Integer) iter.next();
-               sum += i;
+                Integer i = (Integer) iter.next();
+                sum += i;
             }
             return sum;
         }
-        
+
     }
 
     public static class WordCollator implements RCollator<String, Integer, Integer> {
@@ -64,25 +64,25 @@ public class MapReduceExample {
             }
             return result;
         }
-        
+
     }
-    
+
     public static void main(String[] args) {
         // connects to 127.0.0.1:6379 by default
         RedissonClient redisson = Redisson.create();
-        
+
         redisson.getExecutorService(RExecutorService.MAPREDUCE_NAME).registerWorkers(WorkerOptions.defaults().workers(3));
-        
+
         RMap<String, String> map = redisson.getMap("myMap");
-        
-        map.put("1", "Alice was beginning to get very tired"); 
+
+        map.put("1", "Alice was beginning to get very tired");
         map.put("2", "of sitting by her sister on the bank and");
         map.put("3", "of having nothing to do once or twice she");
         map.put("4", "had peeped into the book her sister was reading");
         map.put("5", "but it had no pictures or conversations in it");
         map.put("6", "and what is the use of a book");
         map.put("7", "thought Alice without pictures or conversation");
-        
+
         Map<String, Integer> result = new HashMap<>();
         result.put("to", 2);
         result.put("Alice", 2);
@@ -125,18 +125,18 @@ public class MapReduceExample {
         result.put("pictures", 2);
         result.put("conversations", 1);
         result.put("is", 1);
-        
+
         RMapReduce<String, String, String, Integer> mapReduce = map
-                    .<String, Integer>mapReduce()
-                    .mapper(new WordMapper())
-                    .reducer(new WordReducer());
-        
+                .<String, Integer>mapReduce()
+                .mapper(new WordMapper())
+                .reducer(new WordReducer());
+
         Integer count = mapReduce.execute(new WordCollator());
         System.out.println("Count " + count);
-        
+
         Map<String, Integer> resultMap = mapReduce.execute();
         System.out.println("Result " + resultMap);
     }
 
-    
+
 }

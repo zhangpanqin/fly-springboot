@@ -20,10 +20,10 @@ public class Consumer {
 
         // Instantiate with specified consumer group name.
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group4");
-         
+
         // Specify name server addresses.
         consumer.setNamesrvAddr("localhost:9876");
-        
+
         // Subscribe one more more topics to consume.
         consumer.subscribe("test", "*");
         // Register callback to execute on arrival of messages fetched from brokers.
@@ -38,7 +38,7 @@ public class Consumer {
                     return new String(body, StandardCharsets.UTF_8);
 
                 }).collect(Collectors.toList());
-                log.info("接受到的消息:{}",collect);
+                log.info("接受到的消息:{}", collect);
                 return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
             }
         });

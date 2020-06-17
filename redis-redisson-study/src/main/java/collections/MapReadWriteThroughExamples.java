@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2016-2019 Nikita Koksharov
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -40,11 +40,11 @@ public class MapReadWriteThroughExamples {
     public static void main(String[] args) throws IOException, SQLException {
         // connects to 127.0.0.1:6379 by default
         RedissonClient redisson = Redisson.create();
-        
+
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "admin", "admin");
-        
+
         MapWriter<String, String> mapWriter = new MapWriter<String, String>() {
-            
+
             @Override
             public void write(Map<String, String> map) {
                 try {
@@ -63,7 +63,7 @@ public class MapReadWriteThroughExamples {
                     throw new IllegalStateException(e);
                 }
             }
-            
+
             @Override
             public void delete(Collection<String> keys) {
                 try {
@@ -83,9 +83,9 @@ public class MapReadWriteThroughExamples {
 
             }
         };
-        
+
         MapLoader<String, String> mapLoader = new MapLoader<String, String>() {
-            
+
             @Override
             public Iterable<String> loadAllKeys() {
                 List<String> list = new ArrayList<String>();
@@ -105,7 +105,7 @@ public class MapReadWriteThroughExamples {
 
                 return list;
             }
-            
+
             @Override
             public String load(String key) {
                 try {
@@ -125,13 +125,13 @@ public class MapReadWriteThroughExamples {
                 }
             }
         };
-        
-        MapOptions<String, String> options = 
+
+        MapOptions<String, String> options =
                 MapOptions.<String, String>defaults()
-                    .writer(mapWriter)
-                    .loader(mapLoader);
-        
-        RMap<String, String> map =  redisson.getMap("myMap", options);
+                        .writer(mapWriter)
+                        .loader(mapLoader);
+
+        RMap<String, String> map = redisson.getMap("myMap", options);
         map.put("1", "Willy");
         map.put("2", "Andrea");
         map.put("3", "Bob");
@@ -139,8 +139,8 @@ public class MapReadWriteThroughExamples {
         String name1 = map.get("1");
         String name2 = map.get("2");
         String name3 = map.get("3");
-        
+
         redisson.shutdown();
     }
-    
+
 }

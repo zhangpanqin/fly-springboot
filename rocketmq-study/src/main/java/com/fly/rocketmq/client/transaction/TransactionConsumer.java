@@ -35,7 +35,7 @@ public class TransactionConsumer {
                     }
                     return null;
                 }).collect(Collectors.toList());
-                System.out.printf(Thread.currentThread().getName() + " Receive New Messages: " + collect+ "%n");
+                System.out.printf(Thread.currentThread().getName() + " Receive New Messages: " + collect + "%n");
                 return ConsumeOrderlyStatus.SUCCESS;
 
             }

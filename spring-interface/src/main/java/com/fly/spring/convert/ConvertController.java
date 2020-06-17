@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ConvertController {
 
     @GetMapping(value = "/convert")
-    public String convert(QuerySexDTO request){
+    public String convert(QuerySexDTO request) {
         System.out.println(35);
         System.out.println(request);
         return "success";

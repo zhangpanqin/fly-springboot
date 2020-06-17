@@ -53,7 +53,7 @@ public class EsProductDO implements Serializable {
     /**
      * 生日
      */
-    @Field(type = FieldType.Date,format = DateFormat.date)
+    @Field(type = FieldType.Date, format = DateFormat.date)
     private String birthday;
 
     /**

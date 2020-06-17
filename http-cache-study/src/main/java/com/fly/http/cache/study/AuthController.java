@@ -22,18 +22,18 @@ public class AuthController {
     @GetMapping("/auth")
     public ResponseEntity<String> res(HttpServletRequest request) {
         Cookie[] cookies = Optional.ofNullable(request.getCookies()).orElse(new Cookie[0]);
-         Optional<Cookie> authorization1 = Stream.of(cookies).filter(item -> {
-             String value = item.getName();
+        Optional<Cookie> authorization1 = Stream.of(cookies).filter(item -> {
+            String value = item.getName();
             return Objects.equals("Authorization", value);
         }).findFirst();
-        if (authorization1.isPresent()){
+        if (authorization1.isPresent()) {
             return ResponseEntity.status(200).body("success");
         }
         return ResponseEntity.status(403).body("fail");
     }
 
     @GetMapping("/login")
-    public RedirectView request(HttpServletRequest request, HttpServletResponse response){
+    public RedirectView request(HttpServletRequest request, HttpServletResponse response) {
         final Cookie cookie = new Cookie("Authorization", "Authorization");
         cookie.setPath("/");
         cookie.setDomain("localhost");

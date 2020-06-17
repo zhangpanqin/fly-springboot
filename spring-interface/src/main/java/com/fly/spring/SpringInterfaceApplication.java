@@ -10,7 +10,7 @@ import org.springframework.context.annotation.FilterType;
 @SpringBootApplication
 @EnableMyConfiguration
 // 排除注解扫描的类
-@ComponentScan(excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Avoid.class)})
+@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Avoid.class)})
 public class SpringInterfaceApplication {
 
     public static void main(String[] args) {

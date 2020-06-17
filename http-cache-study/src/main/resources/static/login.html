@@ -7,13 +7,16 @@
 <body>
 登录页面,点击登录之后跳转到访问的页面.
 <br>
-<a id="login"><button>登录</button></a>
+<a id="login">
+    <button>登录</button>
+</a>
 <script>
 
     let elementById = document.getElementById("login");
     elementById.onclick=()=>{
         window.location.href="/login"+window.location.search;
     }
+
 </script>
 </body>
 </html>

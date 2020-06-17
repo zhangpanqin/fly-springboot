@@ -8,8 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class MybatisApplicationTests {
 
-   @Autowired
+    @Autowired
     private UserMapper userMapper;
+
     @Test
     public void contextLoads() {
         System.out.println(userMapper.selectById(1));

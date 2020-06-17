@@ -10,12 +10,13 @@ import org.mapstruct.factory.Mappers;
  */
 @Mapper(uses = TimeConvert2.class)
 public interface PersonConvert2 {
-    PersonConvert2 PERSON_CONVERT= Mappers.getMapper(PersonConvert2.class);
-    @Mapping(target = "studentName",source = "name")
-    @Mapping(target = "birthday",source = "birthday",qualifiedBy = TimeConvert2.StringToTime.class)
+    PersonConvert2 PERSON_CONVERT = Mappers.getMapper(PersonConvert2.class);
+
+    @Mapping(target = "studentName", source = "name")
+    @Mapping(target = "birthday", source = "birthday", qualifiedBy = TimeConvert2.StringToTime.class)
     Student personToStudent(Person person);
 
-    @Mapping(target = "name",source = "studentName")
-    @Mapping(target = "birthday",source = "birthday",qualifiedBy = TimeConvert2.TimeToString.class)
+    @Mapping(target = "name", source = "studentName")
+    @Mapping(target = "birthday", source = "birthday", qualifiedBy = TimeConvert2.TimeToString.class)
     Person studentToPerson(Student student);
 }

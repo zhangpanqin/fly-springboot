@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * @date 2019-10-30-14:50
  * @description
  */
-@Configuration
 @ComponentScan(value = "com.fly.spring.context")
 public class Config {
     public static void main(String[] args) {

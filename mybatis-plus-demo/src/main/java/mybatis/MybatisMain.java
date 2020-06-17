@@ -25,20 +25,13 @@ public class MybatisMain {
         }
         SqlSessionFactory sqlSessionFactory = null;
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession sqlSession = null;
-        try {
-            sqlSession = sqlSessionFactory.openSession();
+
+        try (SqlSession sqlSession = sqlSessionFactory.openSession();) {
             RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
             Role role = roleMapper.getRole(1L);
             System.out.println(role);
             sqlSession.commit();
 
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            sqlSession.rollback();
-            e.printStackTrace();
-        } finally {
-            sqlSession.close();
         }
     }
 

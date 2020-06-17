@@ -11,12 +11,13 @@ import lombok.ToString;
  */
 @Getter
 @ToString
-public enum SexDTO implements BaseEnum{
+public enum SexDTO implements BaseEnum {
 
-    BOY(1),Girl(2);
+    BOY(1), Girl(2);
 
     private Integer code;
-    SexDTO(Integer code){
-        this.code=code;
+
+    SexDTO(Integer code) {
+        this.code = code;
     }
 }

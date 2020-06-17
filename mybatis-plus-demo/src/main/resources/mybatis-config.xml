@@ -10,6 +10,14 @@
     <typeAliases>
         <typeAlias alias="role" type="mybatis.Role"/>
     </typeAliases>
+    <plugins>
+        <!--        <plugin interceptor="mybatis.plugins.ExamplePlugin">-->
+        <!--            <property name="someProperty" value="100"/>-->
+        <!--        </plugin>-->
+        <plugin interceptor="mybatis.plugins.SQLStatsInterceptor">
+            <property name="dialect" value="mysql"></property>
+        </plugin>
+    </plugins>
     <!-- 定义数据库的信息，默认使用development数据库构建环境 -->
     <environments default="development">
         <environment id="development">

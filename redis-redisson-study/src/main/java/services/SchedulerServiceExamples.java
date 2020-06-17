@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2016-2019 Nikita Koksharov
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -43,14 +43,14 @@ public class SchedulerServiceExamples {
             RMap<String, String> map = redisson.getMap("myMap");
             map.put("5", "11");
         }
-        
+
     }
-    
+
     public static class CallableTask implements Callable<String>, Serializable {
 
         @RInject
         RedissonClient redisson;
-        
+
         @Override
         public String call() throws Exception {
             RMap<String, String> map = redisson.getMap("myMap");
@@ -59,12 +59,12 @@ public class SchedulerServiceExamples {
         }
 
     }
-    
+
     public static void main(String[] args) {
         Config config = new Config();
         config.useClusterServers()
-            .addNodeAddress("127.0.0.1:7001", "127.0.0.1:7002", "127.0.0.1:7003");
-        
+                .addNodeAddress("127.0.0.1:7001", "127.0.0.1:7002", "127.0.0.1:7003");
+
         RedissonClient redisson = Redisson.create(config);
 
         RedissonNodeConfig nodeConfig = new RedissonNodeConfig(config);
@@ -79,9 +79,9 @@ public class SchedulerServiceExamples {
         e.schedule(new RunnableTask(), CronSchedule.of("10 0/5 * * * ?"));
         e.schedule(new RunnableTask(), CronSchedule.dailyAtHourAndMinute(10, 5));
         e.schedule(new RunnableTask(), CronSchedule.weeklyOnDayAndHourAndMinute(12, 4, Calendar.MONDAY, Calendar.FRIDAY));
-        
+
         e.shutdown();
         node.shutdown();
     }
-    
+
 }

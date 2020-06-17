@@ -2,12 +2,11 @@ package com.fly.testapp;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -23,12 +22,10 @@ public class TestController {
 
     private TestService testService;
 
-    @GetMapping(value = "/test/app")
-    public String testApp(HttpServletResponse response) {
-        final Cookie cookie = new Cookie("username", "测试");
-        cookie.setPath("/");
-        response.addCookie(cookie);
-        return "adfas";
+    @PostMapping(value = "/test/app/{id}")
+    public Map testApp(@PathVariable String id, @RequestBody Map name) {
+        name.put("id", id);
+        return name;
     }
 
     @GetMapping(value = "/cookie")

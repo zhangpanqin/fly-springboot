@@ -44,15 +44,15 @@ public class TransactionProducer {
         producer.setTransactionListener(transactionListener);
         producer.start();
 
-        String[] tags = new String[] {"TagA", "TagB", "TagC"};
+        String[] tags = new String[]{"TagA", "TagB", "TagC"};
         for (int i = 0; i < 3; i++) {
 
-                Message msg =
+            Message msg =
                     new Message("TopicTestjjj", tags[i], "KEY" + i,
-                        ("事务消息  Hello RocketMQ "+tags[i] + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
-                SendResult sendResult = producer.sendMessageInTransaction(msg, null);
-                System.out.printf("%s%n", sendResult);
-                TimeUnit.MICROSECONDS.sleep(10);
+                            ("事务消息  Hello RocketMQ " + tags[i] + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
+            SendResult sendResult = producer.sendMessageInTransaction(msg, null);
+            System.out.printf("%s%n", sendResult);
+            TimeUnit.MICROSECONDS.sleep(10);
         }
 
         for (int i = 0; i < 100000; i++) {

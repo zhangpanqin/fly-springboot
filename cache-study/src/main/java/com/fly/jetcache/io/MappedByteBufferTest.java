@@ -28,6 +28,7 @@ public class MappedByteBufferTest {
                 System.out.print(scan.next() + " ");
             }
 
-        } catch (IOException e) {}
+        } catch (IOException e) {
+        }
     }
 }

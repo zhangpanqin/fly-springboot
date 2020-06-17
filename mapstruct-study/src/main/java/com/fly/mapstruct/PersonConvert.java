@@ -11,9 +11,10 @@ import org.mapstruct.factory.Mappers;
  */
 @Mapper(uses = {TimeConvert.class})
 public interface PersonConvert {
-    PersonConvert PERSON_CONVERT= Mappers.getMapper(PersonConvert.class);
-    @Mapping(target = "studentName",source = "name")
-    @Mapping(target = "birthday",source = "birthday")
+    PersonConvert PERSON_CONVERT = Mappers.getMapper(PersonConvert.class);
+
+    @Mapping(target = "studentName", source = "name")
+    @Mapping(target = "birthday", source = "birthday")
     Student personToStudent(Person person);
 
     @InheritInverseConfiguration

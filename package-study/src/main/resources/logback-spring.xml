@@ -6,7 +6,7 @@
     <springProperty scope="context" name="logPath" source="logging.log-path" defaultValue="logs"/>
 
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
     <!--生成日志-->
     <appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${logPath}/${appName}.log</file>

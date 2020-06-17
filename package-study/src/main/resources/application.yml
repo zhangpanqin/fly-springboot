@@ -10,7 +10,7 @@ server:
   port: 9911
 logging:
   level:
-   root: info
+    root: info
   config: classpath:logback-spring.xml
   log-name: package-study
   log-path: logs

@@ -20,7 +20,7 @@ public class Main2Test {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         final Student student = new Student();
         student.setAge(123);
         student.setBirthday(LocalDateTime.now());

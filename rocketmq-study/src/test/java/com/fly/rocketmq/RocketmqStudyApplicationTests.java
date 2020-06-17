@@ -12,15 +12,16 @@ import org.springframework.messaging.support.GenericMessage;
 @SpringBootTest
 class RocketmqStudyApplicationTests {
 
-	@Autowired
-	private RocketMQTemplate rocketMQTemplate;
-	@Test
-	void contextLoads() {
-		Order order = new Order();
-		order.setId("主键 id");
-		order.setMessage("消息");
-		Message<Order> objectMessage = new GenericMessage(order);
-		rocketMQTemplate.syncSend("test",objectMessage);
-	}
+    @Autowired
+    private RocketMQTemplate rocketMQTemplate;
+
+    @Test
+    void contextLoads() {
+        Order order = new Order();
+        order.setId("主键 id");
+        order.setMessage("消息");
+        Message<Order> objectMessage = new GenericMessage(order);
+        rocketMQTemplate.syncSend("test", objectMessage);
+    }
 
 }

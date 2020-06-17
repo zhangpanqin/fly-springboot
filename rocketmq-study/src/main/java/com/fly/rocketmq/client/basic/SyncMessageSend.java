@@ -29,12 +29,12 @@ public class SyncMessageSend {
         for (int i = 0; i < 10; i++) {
             //Create a message instance, specifying topic, tag and message body.
             Message msg = new Message("stream-test-topic2",
-                    "tag1" ,
+                    "tag1",
                     ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET)
             );
             //Call send message to deliver message to one of brokers.
             SendResult sendResult = producer.send(msg);
-           log.info("发送消息返回的结果:{}", sendResult);
+            log.info("发送消息返回的结果:{}", sendResult);
         }
         //Shut down once the producer instance is not longer in use.
         producer.shutdown();
