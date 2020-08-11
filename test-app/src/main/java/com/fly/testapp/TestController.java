@@ -22,6 +22,11 @@ public class TestController {
 
     private TestService testService;
 
+    @GetMapping("/demo/test")
+    public String getDemoTest() {
+        return "success";
+    }
+
     @PostMapping(value = "/test/app/{id}")
     public Map testApp(@PathVariable String id, @RequestBody Map name) {
         name.put("id", id);

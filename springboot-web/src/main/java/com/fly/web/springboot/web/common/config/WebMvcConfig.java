@@ -1,6 +1,7 @@
 package com.fly.web.springboot.web.common.config;
 
-import com.fly.web.springboot.web.common.interceptor.MyInterceptor1;
+import com.fly.web.springboot.web.common.interceptor.UserInfoInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -11,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @date 2019-08-20-13:38
  * @description 配置和 mvc 相关
  */
-//@Configuration
+@Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
     /**
      * 简单的url 转发或重定向
@@ -29,8 +30,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
      * 添加拦截器
      */
 
+    @Bean
+    public UserInfoInterceptor getUserInfoInterceptor() {
+        return new UserInfoInterceptor();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new MyInterceptor1()).addPathPatterns("/**");
+        registry.addInterceptor(getUserInfoInterceptor()).addPathPatterns("/**");
     }
 }
